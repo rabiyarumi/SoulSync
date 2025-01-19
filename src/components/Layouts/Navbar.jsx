@@ -1,11 +1,16 @@
 import  { useState } from "react";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { Button  } from "@headlessui/react";
 import { HiOutlineMenu } from "react-icons/hi";
 import logo from "../../assets/love-small.png"
+import useAuth from "@/hooks/useAuth";
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
-    const [user, setUser] = useState(false);
+    const {user, userLogout} = useAuth()
+
+    const handleLogOut = () => {
+      userLogout()
+    }
 
     const navItems = [
         { name: "Home", path: "/" },
@@ -40,6 +45,7 @@ const Navbar = () => {
             </NavLink>
           ))}
           {user && (
+           <>
             <NavLink
               to="/dashboard"
               className={({ isActive }) =>
@@ -48,13 +54,21 @@ const Navbar = () => {
             >
               Dashboard
             </NavLink>
+            <Link>
+            <Button onClick={handleLogOut}>LogOut</Button>
+            </Link>
+            <p>{user?.displayName}</p>
+            </>
+            
           )}
         </div>
 
         {/* Right Section */}
         <div className=" hidden md:flex items-center">
           {
-            user ? <p>avater</p>  : <Button>Login</Button>
+            user ? <img src={user.photoURL} className="h-10 rounded-full"/>  : 
+            <Link to={"/login"}>
+            <Button>Login</Button></Link>
           }
         </div>
 

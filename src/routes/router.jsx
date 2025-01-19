@@ -7,6 +7,8 @@ import MainLayout from "@/layouts/MainLayout/MainLayout";
 import Biodatas from "@/Pages/AllBiodatas/Biodatas";
 import AboutUs from "@/Pages/AboutUs/AboutUs";
 import ContactUs from "@/Pages/ContactUs/ContactUs";
+import Login from "@/Pages/Login/Login";
+import Register from "@/Pages/Register/Register";
 const router = createBrowserRouter([
     {
       path: "/",
@@ -30,11 +32,11 @@ const router = createBrowserRouter([
         },
         {
           path: "/login",
-          element: <Home/>
+          element: <Login/>
         },
         {
           path: "/register",
-          element: <Home/>
+          element: <Register/>
         },
       ]
     },
