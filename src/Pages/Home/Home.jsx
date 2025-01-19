@@ -1,3 +1,4 @@
+import { Button } from "@/components/ui/button";
 
 const Home = () => {
     return (
@@ -13,6 +14,8 @@ const Home = () => {
             </div>
           </div>
         </nav>
+
+        <Button variant="destructive">Click Me</Button>
   
         {/* Hero Section */}
         <header className="flex flex-col items-center justify-center text-center py-20">
