@@ -2,7 +2,7 @@ import  { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { Button  } from "@headlessui/react";
 import { HiOutlineMenu } from "react-icons/hi";
-import logo from "../../assets/love-symbol.png"
+import logo from "../../assets/love-small.png"
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
     const [user, setUser] = useState(false);
@@ -22,7 +22,7 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto flex items-center justify-between">
         {/* Logo and Website Name */}
         <div className="flex items-center gap-2">
-          <img src={logo} alt="Logo" className="w-20 h-20 border-2 rounded-full" />
+          <img src={logo} alt="Logo" className=" h-12 w-10 " />
           <h1 className="text-xl md:text-2xl font-bold text-[#800020]">SoulSync</h1>
         </div>
 
