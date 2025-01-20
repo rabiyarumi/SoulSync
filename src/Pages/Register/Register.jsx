@@ -31,9 +31,8 @@ const Register = () => {
         name, imageUrl
       );
       setUser({ ...result.user, displayName: name, photoURL: imageUrl  })
-      console.log(result);
 
-      // navigate('/')
+      navigate('/')
       Swal.fire({
         position: "top-end",
         icon: "success",

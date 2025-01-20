@@ -56,6 +56,17 @@ import auth from "@/firebase/firebase.init";
         // console.log("from authProvider", currentUser);
   
         if (currentUser?.email) {
+          setUser(currentUser);
+          console.log(currentUser)
+           // save user info in db
+        await axios.post(
+          `${import.meta.env.VITE_API_URL}/users/${currentUser?.email}`,
+          {
+            name: currentUser?.displayName,
+            image: currentUser?.photoURL,
+            email: currentUser?.email,
+          }
+        )
           //generate token
         //   const { data } = await axios.post(
         //     `${import.meta.env.VITE_API_URL}/jwt`,
@@ -65,7 +76,7 @@ import auth from "@/firebase/firebase.init";
         //     { withCredentials: true }
         //   );
   
-          setUser(currentUser);
+         
         } else {
           setUser(currentUser);
         //   const { data } = await axios.get(
