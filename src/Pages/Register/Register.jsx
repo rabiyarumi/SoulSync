@@ -1,26 +1,39 @@
 import useAuth from "@/hooks/useAuth";
+import axios from "axios";
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 
 const Register = () => {
-  const { user, loading, userRegister, profileUpdate, googleLogin } = useAuth();
+  const { user, setUser, loading, userRegister, profileUpdate, googleLogin } = useAuth();
+  const navigate = useNavigate()
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     const form = e.target;
     const name = form.name.value;
     const email = form.email.value;
     const password = form.password.value;
+    const image = form.image.files[0]
+    const formData = new FormData()
+    formData.append('image', image)
+
+    //send img to imgBB
+    const {data} = await axios.post(`https://api.imgbb.com/1/upload?key=${import.meta.env.VITE_IMGBB_API_KEY}`, formData)
+
+    console.log(data.data.display_url)
+    const imageUrl = data.data.display_url;
 
     try {
       //2. User Registration
       const result = await userRegister(email, password);
 
+
       //3. Save username & profile photo
       await profileUpdate(
-        name,
-        "https://lh3.googleusercontent.com/a/ACg8ocKUMU3XIX-JSUB80Gj_bYIWfYudpibgdwZE1xqmAGxHASgdvCZZ=s96-c"
+        name, imageUrl
       );
+      setUser({ ...result.user, displayName: name, photoURL: imageUrl  })
       console.log(result);
 
       // navigate('/')
@@ -35,7 +48,7 @@ const Register = () => {
       console.log(err);
       Swal.fire({
         position: "top-end",
-        icon: "success",
+        icon: "error",
         title: `${err.message}`,
         showConfirmButton: false,
         timer: 1500,
@@ -47,7 +60,7 @@ const Register = () => {
 const handleGoogleSignIn = async () => { try {
     //User Registration using google
     await googleLogin()
-    // navigate(from, { replace: true })
+    navigate('/')
     Swal.fire({
         position: "top-end",
         icon: "success",
