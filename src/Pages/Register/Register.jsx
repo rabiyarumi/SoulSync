@@ -1,3 +1,4 @@
+import { imageUpload } from "@/api/utils";
 import useAuth from "@/hooks/useAuth";
 import axios from "axios";
 import React from "react";
@@ -15,14 +16,10 @@ const Register = () => {
     const email = form.email.value;
     const password = form.password.value;
     const image = form.image.files[0]
-    const formData = new FormData()
-    formData.append('image', image)
+   
 
     //send img to imgBB
-    const {data} = await axios.post(`https://api.imgbb.com/1/upload?key=${import.meta.env.VITE_IMGBB_API_KEY}`, formData)
-
-    console.log(data.data.display_url)
-    const imageUrl = data.data.display_url;
+   const imageUrl = await imageUpload(image)
 
     try {
       //2. User Registration
