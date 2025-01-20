@@ -10,6 +10,14 @@ import ContactUs from "@/Pages/ContactUs/ContactUs";
 import Login from "@/Pages/Login/Login";
 import Register from "@/Pages/Register/Register";
 import DashboardLayout from "@/layouts/Dashboard/DashboardLayout";
+import CreateBiodata from "@/Pages/CreateBiodata/CreateBiodata";
+import ViewBiodata from "@/Pages/ViewBiodata/ViewBiodata";
+import MyContactRequest from "@/Pages/MyContactRequest/MyContactRequest";
+import FavouritesBiodata from "@/Pages/FavouritesBiodata/FavouritesBiodata";
+import ManageUsers from "@/Pages/ManageUsers/ManageUsers";
+import AdminDashboard from "@/Pages/AdminDashboard/AdminDashboard";
+import ApprovedPremium from "@/Pages/ApprovedPremium/ApprovedPremium";
+import ApprovedContactRequest from "@/Pages/ApprovedContactRequest/ApprovedContactRequest";
 const router = createBrowserRouter([
     {
       path: "/",
@@ -45,7 +53,38 @@ const router = createBrowserRouter([
       path: "/dashboard",
       element: <DashboardLayout/>,
       children: [
-        
+        {
+          path: "create-biodata",
+          element: <CreateBiodata/>
+        },
+        {
+          path: "view-biodata",
+          element: <ViewBiodata/>
+        },
+        {
+          path: "my-contact-request",
+          element: <MyContactRequest/>
+        },
+        {
+          path: "favorites-biodata",
+          element: <FavouritesBiodata/>
+        },
+        {
+          path: "admin-dashboard",
+          element: <AdminDashboard/>
+        },
+        {
+          path: "manage-users",
+          element: <ManageUsers/>
+        },
+        {
+          path: "approved-premium",
+          element: <ApprovedPremium/>
+        },
+        {
+          path: "approved-contact-request",
+          element: <ApprovedContactRequest/>
+        },
       ]
     }
   ]);
