@@ -2,8 +2,8 @@ import React from 'react';
 
 const DashboardSidebar = () => {
     return (
-        <div>
-            
+        <div className='min-h-screen border-2'>
+            Sidebar
         </div>
     );
 };
