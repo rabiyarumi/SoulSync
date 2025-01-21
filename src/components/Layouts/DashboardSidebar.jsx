@@ -1,11 +1,18 @@
+import useAuth from '@/hooks/useAuth';
 import { Button } from '@headlessui/react';
-import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink, useNavigate } from 'react-router-dom';
 
 const DashboardSidebar = () => {
+ const {user, userLogout} = useAuth()
+ const navigate = useNavigate()
 
+  const handleLogOut = () => {
+    userLogout()
+    navigate('/')
+  }
     const navItems = [
-        { name: "Edit Biodata", path: "create-biodata" },
+        { name: "Home", path: "/" },
+        { name: "My Biodata", path: "create-biodata" },
         { name: "View Biodata", path: "view-biodata" },
         { name: "My Contact Request", path: "my-contact-request" },
         { name: "Favorites Biodata", path: "favorites-biodata" },
@@ -32,7 +39,10 @@ const DashboardSidebar = () => {
             </NavLink>
           ))}
             </div>
-          <Button>LogOut</Button>
+            <Link>
+            <Button onClick={handleLogOut}>LogOut</Button>
+            </Link>
+            <p>{user?.displayName}</p>
         </div>
     );
 };

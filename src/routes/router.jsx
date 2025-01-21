@@ -7,7 +7,6 @@ import MainLayout from "@/layouts/MainLayout/MainLayout";
 import Biodatas from "@/Pages/AllBiodatas/Biodatas";
 import AboutUs from "@/Pages/AboutUs/AboutUs";
 import ContactUs from "@/Pages/ContactUs/ContactUs";
-import Login from "@/Pages/Login/Login";
 import Register from "@/Pages/Register/Register";
 import DashboardLayout from "@/layouts/Dashboard/DashboardLayout";
 import CreateBiodata from "@/Pages/CreateBiodata/CreateBiodata";
@@ -18,6 +17,7 @@ import ManageUsers from "@/Pages/ManageUsers/ManageUsers";
 import AdminDashboard from "@/Pages/AdminDashboard/AdminDashboard";
 import ApprovedPremium from "@/Pages/ApprovedPremium/ApprovedPremium";
 import ApprovedContactRequest from "@/Pages/ApprovedContactRequest/ApprovedContactRequest";
+import Login from "@/Pages/Login/Login";
 const router = createBrowserRouter([
     {
       path: "/",

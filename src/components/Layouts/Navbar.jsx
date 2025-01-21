@@ -8,9 +8,7 @@ const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
     const {user, userLogout} = useAuth()
 
-    const handleLogOut = () => {
-      userLogout()
-    }
+    
 
     const navItems = [
         { name: "Home", path: "/" },
@@ -54,10 +52,7 @@ const Navbar = () => {
             >
               Dashboard
             </NavLink>
-            <Link>
-            <Button onClick={handleLogOut}>LogOut</Button>
-            </Link>
-            <p>{user?.displayName}</p>
+            
             </>
             
           )}
