@@ -71,7 +71,7 @@ const CreateBiodata = () => {
     // save biodata in db
     try {
       // post req
-      await axios.post('http://localhost:5000/biodatas', biodata)
+      await axios.post(`${import.meta.env.VITE_API_URL}/biodatas`, biodata)
       .then(data => {
         console.log(data)
       })

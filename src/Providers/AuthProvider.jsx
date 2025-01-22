@@ -68,13 +68,13 @@ import auth from "@/firebase/firebase.init";
           }
         )
           //generate token
-          const { data } = await axios.post(
-            `${import.meta.env.VITE_API_URL}/jwt`,
-            {
-              email: currentUser?.email,
-            },
-            { withCredentials: true }
-          );
+          // const { data } = await axios.post(
+          //   `${import.meta.env.VITE_API_URL}/jwt`,
+          //   {
+          //     email: currentUser?.email,
+          //   },
+          //   { withCredentials: true }
+          // );
   
          
         } else {
