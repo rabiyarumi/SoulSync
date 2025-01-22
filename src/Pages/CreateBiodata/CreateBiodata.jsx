@@ -1,7 +1,9 @@
 import { imageUpload } from "@/api/utils";
 import useAuth from "@/hooks/useAuth";
+import axios from "axios";
 import React, { useState } from "react";
 import { TbFidgetSpinner } from "react-icons/tb";
+import Swal from "sweetalert2";
 
 const CreateBiodata = () => {
   const { user } = useAuth();
@@ -16,47 +18,81 @@ const CreateBiodata = () => {
     setLoading(true);
     const form = e.target;
     const name = form.name.value;
-    const description = form.description.value;
-    const category = form.category.value;
-    const price = parseFloat(form.price.value);
-    const quantity = parseInt(form.quantity.value);
+    const gender = form.gender.value;
+    const birth = form.birth.value;
+    const height = form.height.value;
+    const weight = form.weight.value;
+    const age = form.age.value;
+    const occupation = form.occupation.value;
+    const race = form.race.value;
+    const fathersName = form.fathersName.value;
+    const mothersName = form.mothersName.value;
+    const division = form.division.value;
+    const district = form.district.value;
+    const partnerAge = form.partnerAge.value;
+    const partnerHeight = form.partnerHeight.value;
+    const partnerWeight = form.partnerWeight.value;
+    const contactNumber = form.contactNumber.value;
+
     const image = form.image.files[0];
     const imageUrl = await imageUpload(image);
 
-    // seller info
-    const seller = {
-      name: user?.displayName,
-      image: user?.photoURL,
+    // partner info
+    const partner = {
+      age: partnerAge,
+      height: partnerHeight,
+      weight: partnerWeight,
+    };
+    const contact = {
       email: user?.email,
+      phone: contactNumber,
     };
 
     // Create plant data object
-    const plantData = {
+    const biodata = {
       name,
-      category,
-      description,
-      price,
-      quantity,
       image: imageUrl,
-      seller,
+      gender,
+      birth,
+      height,
+      weight,
+      age,
+      occupation,
+      race,
+      fathersName,
+      mothersName,
+      division,
+      district,
+      partner,
+      contact,
     };
 
-    console.table(plantData);
-    // save plant in db
-    // try {
-    //   // post req
-    //   await axiosSecure.post('/plants', plantData)
-    //   toast.success('Data Added Successfully!')
-    // } catch (err) {
-    //   console.log(err)
-    // } finally {
-    //   setLoading(false)
-  };
+    console.table(biodata);
+    // save biodata in db
+    try {
+      // post req
+      await axios.post('http://localhost:5000/biodatas', biodata)
+      .then(data => {
+        console.log(data)
+      })
+      Swal.fire({
+              position: "top-end",
+              icon: "success",
+              title: "Biodata Added Successfully",
+              showConfirmButton: false,
+              timer: 1500,
+            });
+    } catch (err) {
+      console.log(err)
+    } finally {
+      setLoading(false)
+  }
+}
   return (
     <div className="w-full min-h-[calc(100vh-40px)] flex flex-col justify-center items-center text-gray-800 rounded-xl bg-gray-50">
       <form onSubmit={handleSubmit}>
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
-          <div className="space-y-6">
+        <div className="">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
             {/* Name */}
             <div className="space-y-1 text-sm">
               <label htmlFor="name" className="block text-gray-600">
@@ -67,7 +103,7 @@ const CreateBiodata = () => {
                 name="name"
                 id="name"
                 type="text"
-                placeholder="Plant Name"
+                placeholder="Candidate Name"
                 required
               />
             </div>
@@ -79,7 +115,7 @@ const CreateBiodata = () => {
               <select
                 required
                 className="w-full px-4 py-3 border-lime-300 focus:outline-lime-500 rounded-md bg-white"
-                name="category"
+                name="gender"
               >
                 <option value="Male">Male</option>
                 <option value="Female">Female</option>
@@ -224,13 +260,13 @@ const CreateBiodata = () => {
             </div>
             {/* Fathers name */}
             <div className="space-y-1 text-sm">
-              <label htmlFor="father's-name" className="block text-gray-600">
+              <label htmlFor="fathersName" className="block text-gray-600">
                 Fathers name
               </label>
               <input
                 className="w-full px-4 py-3 text-gray-800 border border-lime-300 focus:outline-lime-500 rounded-md bg-white"
-                name="father's-name"
-                id="father's-name"
+                name="fathersName"
+                id="fathersName"
                 type="text"
                 placeholder="Fathers name"
                 required
@@ -238,24 +274,27 @@ const CreateBiodata = () => {
             </div>
             {/* Mothers name */}
             <div className="space-y-1 text-sm">
-              <label htmlFor="mother's-name" className="block text-gray-600">
+              <label htmlFor="mothersName" className="block text-gray-600">
                 Mothers name
               </label>
               <input
                 className="w-full px-4 py-3 text-gray-800 border border-lime-300 focus:outline-lime-500 rounded-md bg-white"
-                name="mother's-name"
-                id="mother's-name"
+                name="mothersName"
+                id="mothersName"
                 type="text"
                 placeholder="Mothers name"
                 required
               />
             </div>
-            {/* Permanent Division name*/}
+            {/* Division name*/}
             <div className="space-y-1 text-sm">
-              <label htmlFor="permanent-division" className="block text-gray-600">
-                Permanent Division:
+              <label
+                htmlFor="division"
+                className="block text-gray-600"
+              >
+                Division:
               </label>
-              <select id="permanent-division" name="permanent-division" required>
+              <select id="division" name="division" required>
                 <option value="" disabled selected>
                   Select your permanent division
                 </option>
@@ -268,34 +307,33 @@ const CreateBiodata = () => {
                 <option value="sylhet">Sylhet</option>
               </select>
             </div>
-            {/* Present Division name*/}
+            {/*District name*/}
             <div className="space-y-1 text-sm">
-              <label htmlFor="present-division" className="block text-gray-600">
-              Present Division:
+              <label htmlFor="district" className="block text-gray-600">
+                District:
               </label>
-              <select id="present-division" name="present-division" required>
+              <select id="district" name="district" required>
                 <option value="" disabled selected>
-                  Select your permanent division
+                  Select your District
                 </option>
                 <option value="dhaka">Dhaka</option>
-                <option value="chattogram">Chattogram</option>
-                <option value="rangpur">Rangpur</option>
-                <option value="barisal">Barisal</option>
-                <option value="khulna">Khulna</option>
-                <option value="mymensingh">Mymensingh</option>
-                <option value="sylhet">Sylhet</option>
+                <option value="chattogram">Munshiganj</option>
+                <option value="rangpur">Naranganj</option>
+                <option value="barisal">Noakhali</option>
+                <option value="khulna">Kushtiya</option>
+                <option value="mymensingh">Kumilla</option>
+                <option value="sylhet">Bagura</option>
               </select>
             </div>
             {/*Partner Age */}
             <div className="space-y-1 text-sm">
-              <label htmlFor="partner-age" className="block text-gray-600">
-              Partner Age 
-
+              <label htmlFor="partnerAge" className="block text-gray-600">
+                Partner Age
               </label>
               <input
                 className="w-full px-4 py-3 text-gray-800 border border-lime-300 focus:outline-lime-500 rounded-md bg-white"
-                name="partner-age"
-                id="partner-age"
+                name="partnerAge"
+                id="partnerAge"
                 type="number"
                 placeholder="Partner Age "
                 required
@@ -308,23 +346,23 @@ const CreateBiodata = () => {
                 Partner Height (in feet)
               </label>
 
-              <select id="partner-height" name="partner-height" required>
+              <select id="partnerHeight" name="partnerHeight" required>
                 <option value="" disabled selected>
                   Select your Expected height range
                 </option>
-                <option value="4-4.5">4-4.5 ft</option>
-                <option value="4.6-5">4.6-5 ft</option>
-                <option value="5.1-5.5">5.1-5.5 ft</option>
-                <option value="5.6-6">5.6-6 ft</option>
-                <option value="6.1-6.5">6.1-6.5 ft</option>
+                <option value="4-4.5">4-4.5</option>
+                <option value="4.6-5">4.6-5</option>
+                <option value="5.1-5.5">5.1-5.5</option>
+                <option value="5.6-6">5.6-6</option>
+                <option value="6.1-6.5">6.1-6.5</option>
               </select>
             </div>
             {/* Partner Weight */}
             <div className="space-y-1 text-sm">
-              <label htmlFor="name" className="block text-gray-600">
+              <label htmlFor="partnerWeight" className="block text-gray-600">
                 Partner Weight
               </label>
-              <select id="partner-weight" name="partner-weight" required>
+              <select id="partnerWeight" name="partnerWeight" required>
                 <option value="" disabled selected>
                   Select your Expected weight range
                 </option>
@@ -338,16 +376,16 @@ const CreateBiodata = () => {
                 <option value="76-80">76-80 kg</option>
               </select>
             </div>
-            
+
             {/*Contact Email */}
             <div className="space-y-1 text-sm">
-              <label htmlFor="email" className="block text-gray-600">
-              Contact Email
+              <label htmlFor="contactEmail" className="block text-gray-600">
+                Contact Email
               </label>
               <input
                 className="w-full px-4 py-3 text-gray-800 border border-lime-300 focus:outline-lime-500 rounded-md bg-white"
-                name="email"
-                id="email"
+                name="contactEmail"
+                id="contactEmail"
                 type="email"
                 placeholder="Contact Email"
                 value={`${user?.email}`}
@@ -356,19 +394,19 @@ const CreateBiodata = () => {
             </div>
             {/* Mobile Number */}
             <div className="space-y-1 text-sm">
-              <label htmlFor="number" className="block text-gray-600">
-              Mobile Number
+              <label htmlFor="contactNumber" className="block text-gray-600">
+                Contact Number
               </label>
               <input
                 className="w-full px-4 py-3 text-gray-800 border border-lime-300 focus:outline-lime-500 rounded-md bg-white"
-                name="number"
-                id="number"
+                name="contactNumber"
+                id="contactNumber"
                 type="number"
-                placeholder="Mobile Number"
+                placeholder="Contact Number"
                 required
               />
             </div>
-          
+
             {/* Submit Button */}
             <button
               type="submit"
