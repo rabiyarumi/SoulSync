@@ -18,6 +18,8 @@ import AdminDashboard from "@/Pages/AdminDashboard/AdminDashboard";
 import ApprovedPremium from "@/Pages/ApprovedPremium/ApprovedPremium";
 import ApprovedContactRequest from "@/Pages/ApprovedContactRequest/ApprovedContactRequest";
 import Login from "@/Pages/Login/Login";
+import Details from "@/Pages/BiodataDetails.jsx/Details";
+import PrivateRoute from "./PrivateRoute";
 const router = createBrowserRouter([
     {
       path: "/",
@@ -30,6 +32,12 @@ const router = createBrowserRouter([
         {
           path: "/biodatas",
           element: <Biodatas/>
+        },
+        {
+          path: "/biodata/:id",
+          element: <PrivateRoute>
+            <Details/>
+          </PrivateRoute>
         },
         {
           path: "/about-us",

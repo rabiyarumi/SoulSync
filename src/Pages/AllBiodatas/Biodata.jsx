@@ -1,9 +1,12 @@
+/* eslint-disable react/prop-types */
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
+import { Link } from 'react-router-dom';
 
 const Biodata = ({biodata}) => {
 
     const {
+        _id,
         name,
         image,
         gender,
@@ -22,7 +25,7 @@ const Biodata = ({biodata}) => {
       } = biodata || {}
 
     return (
-        <div>
+        <Link to={`/biodata/${_id}`}>
            <Card>
            <img src={image} alt="" className='h-56  w-full rounded-t-xl'/>
             <CardHeader className="flex flex-row gap-4">
@@ -34,10 +37,11 @@ const Biodata = ({biodata}) => {
                 <p>Race: {race}</p>
             </CardContent>
             <CardFooter>
-                <Button variant="destructive">View Details</Button>
+                <Link to={`/biodata/${_id}`}>
+                <Button variant="destructive">View Details</Button></Link>
             </CardFooter>
            </Card>
-        </div>
+        </Link>
     );
 };
 
