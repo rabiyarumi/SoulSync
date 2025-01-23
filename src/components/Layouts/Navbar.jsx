@@ -6,7 +6,7 @@ import logo from "../../assets/love-small.png"
 import useAuth from "@/hooks/useAuth";
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
-    const {user, userLogout} = useAuth()
+    const {user} = useAuth()
 
     
 
@@ -18,7 +18,7 @@ const Navbar = () => {
       ];
     
       const activeClassName = "text-[#800020] font-bold border-b-2 border-[#800020]";
-      const inactiveClassName = "text-gray-600 hover:text-[#800020]";
+      const inactiveClassName = "text-gray-600 font-bold hover:text-[#800020]";
     
     return (
         <nav className="bg-white shadow-md px-4 py-3 sticky top-0 z-50">

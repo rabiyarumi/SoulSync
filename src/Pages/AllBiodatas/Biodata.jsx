@@ -4,7 +4,6 @@ import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/componen
 import { Link } from 'react-router-dom';
 
 const Biodata = ({biodata}) => {
-
     const {
         _id,
         name,
@@ -25,6 +24,7 @@ const Biodata = ({biodata}) => {
       } = biodata || {}
 
     return (
+        <div>
         <Link to={`/biodata/${_id}`}>
            <Card>
            <img src={image} alt="" className='h-56  w-full rounded-t-xl'/>
@@ -42,6 +42,7 @@ const Biodata = ({biodata}) => {
             </CardFooter>
            </Card>
         </Link>
+        </div>
     );
 };
 
