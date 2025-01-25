@@ -4,6 +4,7 @@ import useAuth from "@/hooks/useAuth";
 import useUserBiodata from "@/hooks/useUserBiodata";
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
+import Biodata from "../AllBiodatas/Biodata";
 
 
 const ViewBiodata = () => {
@@ -37,15 +38,23 @@ const ViewBiodata = () => {
 
 
     return (
-        <div>
+        <>
+        {
+          myBiodata ? 
+          <div>
             <h2>My Biodata</h2>
             <h2>Name: {name}</h2>
-            <h2>Email: {contact.email}</h2>
+            <h2>Email: {contact?.email}</h2>
             <h2>biodata Id: {biodataId}</h2>
 
             <Button variant="outline" >Delete</Button>
 
+        </div> :
+        <div>
+          No Biodata Found
         </div>
+        }
+        </>
     );
 };
 

@@ -16,10 +16,6 @@ const CreateBiodata = () => {
   });
   
   const [loading, setLoading] = useState(false);
-  // const [gender, setGender] = useState("");
-  // const [height, setHight] = useState(myBiodata?.height || "");
-  // const [weight, setweight] = useState("");
-
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);

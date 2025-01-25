@@ -24,15 +24,28 @@ const FavouritesBiodata = () => {
   return (
     <div>
       My Favorite biodata
-      <h2>hello</h2>
+     
       <div>
-        {favoriteBiodata?.map((biodata) => (
+        {
+          favoriteBiodata.length > 0 ? 
+          <div>
+            {favoriteBiodata?.map((biodata) => (
           <div key={biodata._id} className="flex gap-8">
             <h1>{biodata.favBiodata.name}</h1>
             <h1>{biodata.favBiodata.biodataId}</h1>
             <button className="text-red-700">Delete</button>
           </div>
         ))}
+          </div> : 
+          <div>
+            <p>
+            You  Have No Contact Request
+            </p>
+          </div>
+        }
+
+
+        
       </div>
     </div>
   );

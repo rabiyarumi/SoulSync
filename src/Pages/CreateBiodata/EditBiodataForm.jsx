@@ -1,8 +1,10 @@
 import { imageUpload } from "@/api/utils";
 import useAuth from "@/hooks/useAuth";
 import useUserBiodata from "@/hooks/useUserBiodata";
+import axios from "axios";
 import { useState } from "react";
 import { TbFidgetSpinner } from "react-icons/tb";
+import Swal from "sweetalert2";
 
 const EditBiodataForm = () => {
     const { user } = useAuth();
@@ -14,7 +16,7 @@ const EditBiodataForm = () => {
   const [loading, setLoading] = useState(false);
   const [myGender, setGender] = useState(myBiodata?.gender || "");
   const [myHeight, setHight] = useState(myBiodata?.height || "");
-  const [myWeight, setweight] = useState(myBiodata?.weight || "");
+  const [myWeight, setWeight] = useState(myBiodata?.weight || "");
   const [myOccupation, setOccupation] = useState(myBiodata?.occupation || "");
   const [myRace, setRace] = useState(myBiodata?.race || "");
   const [myDivision, setDivision] = useState(myBiodata?.division || "");
@@ -77,6 +79,25 @@ const EditBiodataForm = () => {
         };
     
         console.table(biodata);
+
+        try {
+            // post req
+            await axios.patch(`${import.meta.env.VITE_API_URL}/biodatas/${myBiodata._id}`, biodata)
+              .then((data) => {
+                console.log(data);
+              });
+            Swal.fire({
+              position: "top-end",
+              icon: "success",
+              title: "Biodata Updated Successfully",
+              showConfirmButton: false,
+              timer: 1500,
+            });
+          } catch (err) {
+            console.log(err);
+          } finally {
+            setLoading(false);
+          }
   }
 
     return (
@@ -195,7 +216,7 @@ const EditBiodataForm = () => {
                           </label>
                           <select id="weight" name="weight" required
                           value={myWeight}
-                          onChange={(e) => setweight(e.target.value)}>
+                          onChange={(e) => setWeight(e.target.value)}>
                             <option value="" disabled >
                               Select your weight range
                             </option>
