@@ -1,12 +1,15 @@
 import { imageUpload } from "@/api/utils";
 import useAuth from "@/hooks/useAuth";
+import useUserBiodata from "@/hooks/useUserBiodata";
 import axios from "axios";
-import React, { useState } from "react";
+import { useState } from "react";
 import { TbFidgetSpinner } from "react-icons/tb";
 import Swal from "sweetalert2";
 
 const CreateBiodata = () => {
   const { user } = useAuth();
+  const { myBiodata } = useUserBiodata();
+  console.log(myBiodata);
   const [uploadImage, setUploadImage] = useState({
     image: { name: "Upload Button" },
   });
@@ -68,26 +71,35 @@ const CreateBiodata = () => {
     };
 
     console.table(biodata);
-    // save biodata in db
-    try {
-      // post req
-      await axios.post(`${import.meta.env.VITE_API_URL}/biodatas`, biodata)
-      .then(data => {
-        console.log(data)
-      })
-      Swal.fire({
-              position: "top-end",
-              icon: "success",
-              title: "Biodata Added Successfully",
-              showConfirmButton: false,
-              timer: 1500,
-            });
-    } catch (err) {
-      console.log(err)
-    } finally {
-      setLoading(false)
-  }
-}
+
+    if (myBiodata) {
+      console.log(myBiodata);
+
+      // update bioda
+    } else {
+      // save biodata in db
+      try {
+        // post req
+        await axios
+          .post(`${import.meta.env.VITE_API_URL}/biodatas`, biodata)
+          .then((data) => {
+            console.log(data);
+          });
+        Swal.fire({
+          position: "top-end",
+          icon: "success",
+          title: "Biodata Added Successfully",
+          showConfirmButton: false,
+          timer: 1500,
+        });
+      } catch (err) {
+        console.log(err);
+      } finally {
+        setLoading(false);
+      }
+    }
+  };
+
   return (
     <div className="w-full min-h-[calc(100vh-40px)] flex flex-col justify-center items-center text-gray-800 rounded-xl bg-gray-50">
       <form onSubmit={handleSubmit}>
@@ -101,6 +113,7 @@ const CreateBiodata = () => {
               <input
                 className="w-full px-4 py-3 text-gray-800 border border-lime-300 focus:outline-lime-500 rounded-md bg-white"
                 name="name"
+                defaultValue={myBiodata?.name}
                 id="name"
                 type="text"
                 placeholder="Candidate Name"
@@ -116,6 +129,7 @@ const CreateBiodata = () => {
                 required
                 className="w-full px-4 py-3 border-lime-300 focus:outline-lime-500 rounded-md bg-white"
                 name="gender"
+                defaultValue={myBiodata?.gender}
               >
                 <option value="Male">Male</option>
                 <option value="Female">Female</option>
@@ -162,6 +176,7 @@ const CreateBiodata = () => {
               <input
                 className="w-full px-4 py-3 text-gray-800 border border-lime-300 focus:outline-lime-500 rounded-md bg-white"
                 name="birth"
+                defaultValue={myBiodata?.birth}
                 id="birth"
                 type="date"
                 placeholder="Date of Birth"
@@ -212,6 +227,7 @@ const CreateBiodata = () => {
               <input
                 className="w-full px-4 py-3 text-gray-800 border border-lime-300 focus:outline-lime-500 rounded-md bg-white"
                 name="age"
+                defaultValue={myBiodata?.age}
                 id="age"
                 type="number"
                 placeholder=" Age"
@@ -266,6 +282,7 @@ const CreateBiodata = () => {
               <input
                 className="w-full px-4 py-3 text-gray-800 border border-lime-300 focus:outline-lime-500 rounded-md bg-white"
                 name="fathersName"
+                defaultValue={myBiodata?.fathersName}
                 id="fathersName"
                 type="text"
                 placeholder="Fathers name"
@@ -280,6 +297,7 @@ const CreateBiodata = () => {
               <input
                 className="w-full px-4 py-3 text-gray-800 border border-lime-300 focus:outline-lime-500 rounded-md bg-white"
                 name="mothersName"
+                defaultValue={myBiodata?.mothersName}
                 id="mothersName"
                 type="text"
                 placeholder="Mothers name"
@@ -288,10 +306,7 @@ const CreateBiodata = () => {
             </div>
             {/* Division name*/}
             <div className="space-y-1 text-sm">
-              <label
-                htmlFor="division"
-                className="block text-gray-600"
-              >
+              <label htmlFor="division" className="block text-gray-600">
                 Division:
               </label>
               <select id="division" name="division" required>
@@ -333,6 +348,7 @@ const CreateBiodata = () => {
               <input
                 className="w-full px-4 py-3 text-gray-800 border border-lime-300 focus:outline-lime-500 rounded-md bg-white"
                 name="partnerAge"
+                defaultValue={myBiodata?.partner?.age}
                 id="partnerAge"
                 type="number"
                 placeholder="Partner Age "
@@ -362,7 +378,7 @@ const CreateBiodata = () => {
               <label htmlFor="partnerWeight" className="block text-gray-600">
                 Partner Weight
               </label>
-              <select id="partnerWeight" name="partnerWeight" required>
+              <select id="partnerWeight" name="partnerWeight"  required>
                 <option value="" disabled selected>
                   Select your Expected weight range
                 </option>
@@ -400,6 +416,7 @@ const CreateBiodata = () => {
               <input
                 className="w-full px-4 py-3 text-gray-800 border border-lime-300 focus:outline-lime-500 rounded-md bg-white"
                 name="contactNumber"
+                defaultValue={myBiodata?.contact?.phone}
                 id="contactNumber"
                 type="number"
                 placeholder="Contact Number"
