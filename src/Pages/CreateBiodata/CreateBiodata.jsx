@@ -6,6 +6,7 @@ import { useState } from "react";
 import { TbFidgetSpinner } from "react-icons/tb";
 import Swal from "sweetalert2";
 import EditBiodataForm from "./EditBiodataForm";
+import { useNavigate } from "react-router-dom";
 
 const CreateBiodata = () => {
   const { user } = useAuth();
@@ -14,7 +15,7 @@ const CreateBiodata = () => {
   const [uploadImage, setUploadImage] = useState({
     image: { name: "Upload Button" },
   });
-  
+  const navigate = useNavigate()
   const [loading, setLoading] = useState(false);
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -92,6 +93,7 @@ const CreateBiodata = () => {
           showConfirmButton: false,
           timer: 1500,
         });
+        navigate('/dashboard/view-biodata')
       } catch (err) {
         console.log(err);
       } finally {
