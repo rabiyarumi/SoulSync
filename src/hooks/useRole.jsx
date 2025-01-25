@@ -14,7 +14,7 @@ const useRole = () => {
      const { data } = await axios(
        `${import.meta.env.VITE_API_URL}/users/role/${user?.email}`
      );
-     return data;
+     return data.role;
    },
  });
 
