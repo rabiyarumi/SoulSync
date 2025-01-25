@@ -451,7 +451,7 @@ const EditBiodataForm = () => {
                           {loading ? (
                             <TbFidgetSpinner className="animate-spin m-auto" />
                           ) : (
-                            "Save & Continue"
+                            "Update & Continue"
                           )}
                         </button>
                       </div>

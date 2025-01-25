@@ -75,6 +75,46 @@ const handleDelete = (_id) => {
 
 
 
+  //-----------------------Upgrade biodata
+const handleUpgrade =  () => {
+   try{
+  Swal.fire({
+    title: "Are you sure?",
+    text: "You Wan't to make your biodata Premium!",
+    icon: "question",
+    showCancelButton: true,
+    confirmButtonColor: "#3085d6",
+    cancelButtonColor: "#d33",
+    confirmButtonText: "Request!",
+  }).then( async (result)  =>  {
+    if (result.isConfirmed) {
+      //delete data from database
+
+      const { data } =await  axios.patch(
+        `${import.meta.env.VITE_API_URL}/users/${user?.email}`
+      );
+      console.log(data)
+      Swal.fire({
+        icon: "success",
+        title: "Wait for Response",
+        text: "Your Request has been Recorded!",
+     });
+    }
+  })
+ }
+ catch(error){
+  Swal.fire({
+    icon: "error",
+    title: "Oops...",
+    text: `${error.response.data}`,
+ })}
+ 
+  
+} 
+
+
+
+
     return (
         <>
         {
@@ -87,6 +127,9 @@ const handleDelete = (_id) => {
 
             <Button variant="outline" >
               <button onClick={() => handleDelete(myBiodata._id)}>Delete</button>
+            </Button>
+            <Button variant="outline" >
+              <button onClick={() => handleUpgrade(myBiodata._id)}>Upgrade to premium</button>
             </Button>
 
         </div> :
