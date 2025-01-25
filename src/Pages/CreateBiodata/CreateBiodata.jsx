@@ -5,6 +5,7 @@ import axios from "axios";
 import { useState } from "react";
 import { TbFidgetSpinner } from "react-icons/tb";
 import Swal from "sweetalert2";
+import EditBiodataForm from "./EditBiodataForm";
 
 const CreateBiodata = () => {
   const { user } = useAuth();
@@ -13,8 +14,11 @@ const CreateBiodata = () => {
   const [uploadImage, setUploadImage] = useState({
     image: { name: "Upload Button" },
   });
-  console.log(uploadImage);
+  
   const [loading, setLoading] = useState(false);
+  // const [gender, setGender] = useState("");
+  // const [height, setHight] = useState(myBiodata?.height || "");
+  // const [weight, setweight] = useState("");
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -101,7 +105,10 @@ const CreateBiodata = () => {
   };
 
   return (
-    <div className="w-full min-h-[calc(100vh-40px)] flex flex-col justify-center items-center text-gray-800 rounded-xl bg-gray-50">
+    <>
+    {
+      myBiodata ? <EditBiodataForm/> : 
+      <div className="w-full min-h-[calc(100vh-40px)] flex flex-col justify-center items-center text-gray-800 rounded-xl bg-gray-50">
       <form onSubmit={handleSubmit}>
         <div className="">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
@@ -113,7 +120,7 @@ const CreateBiodata = () => {
               <input
                 className="w-full px-4 py-3 text-gray-800 border border-lime-300 focus:outline-lime-500 rounded-md bg-white"
                 name="name"
-                defaultValue={myBiodata?.name}
+                
                 id="name"
                 type="text"
                 placeholder="Candidate Name"
@@ -129,7 +136,7 @@ const CreateBiodata = () => {
                 required
                 className="w-full px-4 py-3 border-lime-300 focus:outline-lime-500 rounded-md bg-white"
                 name="gender"
-                defaultValue={myBiodata?.gender}
+               
               >
                 <option value="Male">Male</option>
                 <option value="Female">Female</option>
@@ -176,7 +183,7 @@ const CreateBiodata = () => {
               <input
                 className="w-full px-4 py-3 text-gray-800 border border-lime-300 focus:outline-lime-500 rounded-md bg-white"
                 name="birth"
-                defaultValue={myBiodata?.birth}
+                
                 id="birth"
                 type="date"
                 placeholder="Date of Birth"
@@ -189,7 +196,12 @@ const CreateBiodata = () => {
                 Height (in feet)
               </label>
 
-              <select id="height" name="height" required>
+              <select
+                id="height"
+                name="height"
+                
+                required
+              >
                 <option value="" disabled selected>
                   Select your height range
                 </option>
@@ -227,7 +239,7 @@ const CreateBiodata = () => {
               <input
                 className="w-full px-4 py-3 text-gray-800 border border-lime-300 focus:outline-lime-500 rounded-md bg-white"
                 name="age"
-                defaultValue={myBiodata?.age}
+               
                 id="age"
                 type="number"
                 placeholder=" Age"
@@ -282,7 +294,7 @@ const CreateBiodata = () => {
               <input
                 className="w-full px-4 py-3 text-gray-800 border border-lime-300 focus:outline-lime-500 rounded-md bg-white"
                 name="fathersName"
-                defaultValue={myBiodata?.fathersName}
+                
                 id="fathersName"
                 type="text"
                 placeholder="Fathers name"
@@ -297,7 +309,7 @@ const CreateBiodata = () => {
               <input
                 className="w-full px-4 py-3 text-gray-800 border border-lime-300 focus:outline-lime-500 rounded-md bg-white"
                 name="mothersName"
-                defaultValue={myBiodata?.mothersName}
+                
                 id="mothersName"
                 type="text"
                 placeholder="Mothers name"
@@ -348,7 +360,7 @@ const CreateBiodata = () => {
               <input
                 className="w-full px-4 py-3 text-gray-800 border border-lime-300 focus:outline-lime-500 rounded-md bg-white"
                 name="partnerAge"
-                defaultValue={myBiodata?.partner?.age}
+               
                 id="partnerAge"
                 type="number"
                 placeholder="Partner Age "
@@ -378,7 +390,7 @@ const CreateBiodata = () => {
               <label htmlFor="partnerWeight" className="block text-gray-600">
                 Partner Weight
               </label>
-              <select id="partnerWeight" name="partnerWeight"  required>
+              <select id="partnerWeight" name="partnerWeight" required>
                 <option value="" disabled selected>
                   Select your Expected weight range
                 </option>
@@ -416,7 +428,7 @@ const CreateBiodata = () => {
               <input
                 className="w-full px-4 py-3 text-gray-800 border border-lime-300 focus:outline-lime-500 rounded-md bg-white"
                 name="contactNumber"
-                defaultValue={myBiodata?.contact?.phone}
+               
                 id="contactNumber"
                 type="number"
                 placeholder="Contact Number"
@@ -439,6 +451,8 @@ const CreateBiodata = () => {
         </div>
       </form>
     </div>
+    }
+    </>
   );
 };
 
