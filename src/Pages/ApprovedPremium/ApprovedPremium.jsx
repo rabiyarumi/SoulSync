@@ -6,10 +6,10 @@ import axios from 'axios';
 const ApprovedPremium = () => {
 
      // Fetch similar biodatas only when gender is available
-     const { data: requestedUser = [], isLoading } = useQuery({
-        queryKey: ['requestedUser'], // Include gender in queryKey
+     const { data: requestedUsers = [], isLoading } = useQuery({
+        queryKey: ['requestedUsers'], // Include gender in queryKey
         queryFn: async () => {
-            const { data } = await axios(`${import.meta.env.VITE_API_URL}/users?status=requested`);
+            const { data } = await axios(`${import.meta.env.VITE_API_URL}/requested-users`);
             return data;
         },
         // enabled: !!gender, // Ensure this query runs only when gender is available
@@ -17,18 +17,18 @@ const ApprovedPremium = () => {
 
     if (isLoading) return <LoadingSpinner/>
 
-    console.log(requestedUser)
 
 
     return (
         <div>
-            <h1>Requested User {requestedUser.length}</h1>
+            <h1>Requested User {requestedUsers?.length}</h1>
             <div className="grid grid-cols-3 gap-4">
                             {
-                                requestedUser?.map(user => (
+                                requestedUsers?.map(user => (
                                     <div key={user?._id} className="p-4 border-2">
                                         <h1 className="text-2xl">{user.name}</h1>
                                         <p>{user?.email}</p>
+                                        <p>Biodata Id: {user?.biodataId}</p>
                                         <p>Role: {user?.role}</p>
                                         <p>status: {user?.status}</p>
                                         

@@ -21,6 +21,7 @@ import Login from "@/Pages/Login/Login";
 import Details from "@/Pages/BiodataDetails.jsx/Details";
 import PrivateRoute from "./PrivateRoute";
 import AdminRoute from "./AdminRoute";
+import CheckOut from "@/Pages/BiodataDetails.jsx/CheckOut";
 const router = createBrowserRouter([
     {
       path: "/",
@@ -38,6 +39,12 @@ const router = createBrowserRouter([
           path: "/biodata/:id",
           element: <PrivateRoute>
             <Details/>
+          </PrivateRoute>
+        },
+        {
+          path: "/checkout/:id",
+          element: <PrivateRoute>
+            <CheckOut/>
           </PrivateRoute>
         },
         {

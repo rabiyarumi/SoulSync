@@ -1,7 +1,7 @@
 import LoadingSpinner from "@/components/shared/LoadingSpinner";
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import Biodata from "../AllBiodatas/Biodata";
 import Swal from "sweetalert2";
 import useAuth from "@/hooks/useAuth";
@@ -107,7 +107,7 @@ const Details = () => {
             <p> Age: {division}</p>
             <p> Age: {district}</p>
             <button onClick={() => handleAddToFavorite(biodata)} className="p-3">Add to Fav</button>
-            <button>CheckOut</button>
+            <Link to={`/checkout/${biodata.biodataId}`}>Request for Contact</Link>
 
            </div>
         </div>
