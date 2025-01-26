@@ -20,6 +20,7 @@ import ApprovedContactRequest from "@/Pages/ApprovedContactRequest/ApprovedConta
 import Login from "@/Pages/Login/Login";
 import Details from "@/Pages/BiodataDetails.jsx/Details";
 import PrivateRoute from "./PrivateRoute";
+import AdminRoute from "./AdminRoute";
 const router = createBrowserRouter([
     {
       path: "/",
@@ -79,7 +80,11 @@ const router = createBrowserRouter([
         },
         {
           path: "admin-dashboard",
-          element: <AdminDashboard/>
+          element: <PrivateRoute>
+            <AdminRoute>
+            <AdminDashboard/>
+            </AdminRoute>
+          </PrivateRoute>
         },
         {
           path: "manage-users",
