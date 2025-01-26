@@ -1,21 +1,48 @@
 import useAuth from "@/hooks/useAuth";
+import axios from "axios";
 import { useState } from "react";
 import { TbFidgetSpinner } from "react-icons/tb";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const CheckOut = () => {
   const { user } = useAuth();
   const {id} = useParams();
+  const navigate = useNavigate()
   const [loading, setLoading] = useState(false);
-  const handleCheckout = () => {
+
+
+  const handleCheckout =async () => {
     setLoading(true);
     const biodataId = id;
     const email = user?.email;
     const status= 'Pending'
+    const amount= 5
 
-    const contactPurchase = {biodataId, email, status}
-    console.log(contactPurchase)
+    const purchaseInfo = {biodataId, email, status, amount}
+    console.log(purchaseInfo)
     //post contact request to db
+     // save biodata in db
+     try {
+        // post req
+        await axios
+          .post(`${import.meta.env.VITE_API_URL}/purchase-contacts`, purchaseInfo)
+          .then((data) => {
+            console.log(data);
+          });
+        Swal.fire({
+          position: "top-end",
+          icon: "success",
+          title: " Your Request Has bees Recorded",
+          showConfirmButton: false,
+          timer: 1500,
+        });
+        navigate('/biodatas')
+      } catch (err) {
+        console.log(err);
+      } finally {
+        setLoading(false);
+    }
   };
   return (
     <div className="p-8">

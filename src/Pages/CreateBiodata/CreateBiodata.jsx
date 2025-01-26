@@ -73,11 +73,7 @@ const CreateBiodata = () => {
 
     console.table(biodata);
 
-    if (myBiodata) {
-      console.log(myBiodata);
-
-      // update bioda
-    } else {
+    
       // save biodata in db
       try {
         // post req
@@ -98,7 +94,6 @@ const CreateBiodata = () => {
         console.log(err);
       } finally {
         setLoading(false);
-      }
     }
   };
 
