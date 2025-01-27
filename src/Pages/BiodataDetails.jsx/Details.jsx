@@ -5,12 +5,12 @@ import { Link, useParams } from "react-router-dom";
 import Biodata from "../AllBiodatas/Biodata";
 import Swal from "sweetalert2";
 import useAuth from "@/hooks/useAuth";
+import useRole from "@/hooks/useRole";
 
 const Details = () => {
     const {id} = useParams()
     const {user} = useAuth()
-    console.log(user.email)
-
+    const {role} = useRole()
   // Fetch biodata details
   const { data: biodata = {}, isLoading: isBiodataLoading } = useQuery({
     queryKey: ['biodata', id], // Include id in queryKey to ensure query invalidation
@@ -107,7 +107,15 @@ const Details = () => {
             <p> Age: {division}</p>
             <p> Age: {district}</p>
             <button onClick={() => handleAddToFavorite(biodata)} className="p-3">Add to Fav</button>
+
+            <hr />
+            {role === "Admin" || role === "Premium" ? <>
+            <p>{contact?.email}</p>
+            <p>{contact?.phone}</p>
+            </> 
+            :
             <Link to={`/checkout/${biodata.biodataId}`}>Request for Contact</Link>
+            }
 
            </div>
         </div>
