@@ -9,11 +9,12 @@ const MyContactRequest = () => {
 
   // Fetch Favorite biodata
   const { data: contactRequest = [], isLoading , refetch} = useQuery({
-    queryKey: ["contactRequest"], // Include id in queryKey to ensure query invalidation
+    queryKey: ["contactRequest", user?.email], // Include id in queryKey to ensure query invalidation
     queryFn: async () => {
       const { data } = await axios(
         `${import.meta.env.VITE_API_URL}/purchase-contacts/${user?.email}`
       );
+      console.log(data)
       return data;
     },
   });
@@ -66,13 +67,16 @@ const MyContactRequest = () => {
           contactRequest.length > 0 ? 
           <div>
             {contactRequest?.map((biodata) => (
-          <div key={biodata._id} className="flex gap-8">
+          <div key={biodata?._id} className="flex gap-8">
             <h1>{biodata.name}</h1>
             <h1>{biodata.biodataId}</h1>
             <h1>{biodata.status}</h1>
-            <button className="text-red-700">
-              <button onClick={() => handleDelete(biodata?._id)}>Delete</button>
-            </button>
+            {biodata?.status == "Purchased" ? <h1>{biodata?.contactEmail}</h1>: ""}
+            {biodata?.status == "Purchased" ? <h1>{biodata?.contactNumber}</h1>: ""}
+            {biodata?.status != "Purchased" ? <button className="text-red-700">
+              <p onClick={() => handleDelete(biodata?._id)}>Delete</p>
+            </button>: ""}
+            
           </div>
         ))}
           </div> : 
