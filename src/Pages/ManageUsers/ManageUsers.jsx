@@ -5,7 +5,7 @@ import axios from "axios";
 
 const ManageUsers = () => {
 
-    // Fetch Favorite biodata
+    // Fetch all users
   const { data: allUsers = [], isLoading , refetch} = useQuery({
     queryKey: ["allUsers"], // Include id in queryKey to ensure query invalidation
     queryFn: async () => {
