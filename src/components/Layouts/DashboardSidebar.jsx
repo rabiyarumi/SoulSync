@@ -37,7 +37,7 @@ const DashboardSidebar = () => {
         <div className='min-h-screen border-2 flex flex-col justify-between p-5'>
           
             <div className='flex flex-col gap-4'>
-            {role === 'normal' && 
+            {role === 'Normal' || role === 'Premium' && 
             <>
              {userNavItems.map((item) => (
             <NavLink
