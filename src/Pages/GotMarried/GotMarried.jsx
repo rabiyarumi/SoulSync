@@ -1,9 +1,13 @@
 import { imageUpload } from "@/api/utils";
+import useAuth from "@/hooks/useAuth";
+import axios from "axios";
 import { useState } from "react";
 import { TbFidgetSpinner } from "react-icons/tb";
 import { useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const GotMarried = () => {
+    const {user} = useAuth()
   const [uploadImage, setUploadImage] = useState({
     image: { name: "Upload Button" },
   });
@@ -15,25 +19,42 @@ const GotMarried = () => {
     e.preventDefault();
     setLoading(true);
     const form = e.target;
-    const name = form.name.value;
-    const gender = form.gender.value;
-    const birth = form.birth.value;
-    const height = form.height.value;
-    const weight = form.weight.value;
-    const age = form.age.value;
-    const occupation = form.occupation.value;
-    const race = form.race.value;
-    const fathersName = form.fathersName.value;
-    const mothersName = form.mothersName.value;
-    const division = form.division.value;
-    const district = form.district.value;
-    const partnerAge = form.partnerAge.value;
-    const partnerHeight = form.partnerHeight.value;
-    const partnerWeight = form.partnerWeight.value;
-    const contactNumber = form.contactNumber.value;
+    const brideName = form.brideName.value;
+    const groomName = form.groomName.value;
+    const brideBiodataId = form.brideBiodataId.value;
+    const groomBiodataId = form.groomBiodataId.value;
+    const marriedStory = form.story.value;
 
     const image = form.image.files[0];
     const imageUrl = await imageUpload(image);
+
+    // Create plant data object
+    const marriedData = {brideName, groomName, brideBiodataId,groomBiodataId, image: imageUrl,marriedStory , userEmail: user?.email};
+  
+      console.table(marriedData);
+  
+      
+        // save biodata in db
+        try {
+          // post req
+          await axios
+            .post(`${import.meta.env.VITE_API_URL}/married-stories`, marriedData)
+            .then((data) => {
+              console.log(data);
+            });
+          Swal.fire({
+            position: "top-end",
+            icon: "success",
+            title: "Biodata Added Successfully",
+            showConfirmButton: false,
+            timer: 1500,
+          });
+          navigate('/')
+        } catch (err) {
+          console.log(err);
+        } finally {
+          setLoading(false);
+      }
   };
 
   return (
@@ -102,9 +123,15 @@ const GotMarried = () => {
 
             {/* Image */}
             <div className=" p-4  w-full  m-auto rounded-lg flex-grow">
+            <label htmlFor="groomBiodataId" className="block text-gray-600 -mt-4">
+              Groom BiodataId
+              </label>
               <div className="file_upload px-5 py-3 relative border-4 border-dotted border-gray-300 rounded-lg">
+                
                 <div className="flex flex-col w-max mx-auto text-center">
+                
                   <label>
+                  
                     <input
                       onChange={(e) =>
                         setUploadImage({
