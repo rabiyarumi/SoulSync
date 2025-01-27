@@ -20,6 +20,7 @@ const DashboardSidebar = () => {
         { name: "View Biodata", path: "view-biodata" },
         { name: "My Contact Request", path: "my-contact-request" },
         { name: "Favorites Biodata", path: "favorites-biodata" },
+        { name: "Add Married Story", path: "got-married" },
       ];
     const adminNavItems = [
         { name: "Home", path: "/" },

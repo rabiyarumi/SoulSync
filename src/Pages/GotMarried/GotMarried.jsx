@@ -133,7 +133,20 @@ const GotMarried = () => {
               </div>
             )}
 
-           
+            {/* Description */}
+            <div className="space-y-1 text-sm">
+              <label htmlFor="groomBiodataId" className="block text-gray-600">
+              Married Story
+              </label>
+              <textarea
+                className="w-full px-4 py-3 text-gray-800 border border-lime-300 focus:outline-lime-500 rounded-md bg-white"
+                name="story"
+                id="story"
+                type="text"
+                placeholder="Write Your Story"
+                required
+              />
+            </div>
 
             {/* Submit Button */}
             <button
