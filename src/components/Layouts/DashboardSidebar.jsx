@@ -54,7 +54,7 @@ const DashboardSidebar = () => {
 
 
           {/* admin navlink */}
-          {role === 'admin' && 
+          {role === 'Admin' && 
             <>
              {adminNavItems.map((item) => (
             <NavLink
