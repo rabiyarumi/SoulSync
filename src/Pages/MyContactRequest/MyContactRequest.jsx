@@ -18,45 +18,44 @@ const MyContactRequest = () => {
     },
   });
 
-  console.log(contactRequest)
 
-  //----------------delete favorite biodatas-----------------\\
-//   const handleDelete = (_id) => {
-//     try{
-//      Swal.fire({
-//        title: "Are you sure?",
-//        text: "You won't be able to revert this!",
-//        icon: "warning",
-//        showCancelButton: true,
-//        confirmButtonColor: "#3085d6",
-//        cancelButtonColor: "#d33",
-//        confirmButtonText: "Yes, delete it!",
-//      }).then((result) => {
-//        if (result.isConfirmed) {
-//          //delete data from database
+//   ----------------delete favorite biodatas-----------------\\
+  const handleDelete = (_id) => {
+    try{
+     Swal.fire({
+       title: "Are you sure?",
+       text: "You won't be able to revert this!",
+       icon: "warning",
+       showCancelButton: true,
+       confirmButtonColor: "#3085d6",
+       cancelButtonColor: "#d33",
+       confirmButtonText: "Yes, delete it!",
+     }).then((result) => {
+       if (result.isConfirmed) {
+         //delete data from database
    
-//          const { data } = axios.delete(
-//            `${import.meta.env.VITE_API_URL}/fav-biodatas/${_id}`
-//          );
-//          console.log(data)
-//          Swal.fire({
-//            title: "Deleted!",
-//            text: "Your Biodata been deleted.",
-//            icon: "success",
-//          });
-//         refetch()
-//        }
-//      })
-//     }
-//     catch{
-//      Swal.fire({
-//        icon: "error",
-//        title: "Oops...",
-//        text: "Something is wrong!",
-//     })}
+         const { data } = axios.delete(
+           `${import.meta.env.VITE_API_URL}/purchase-contacts/${_id}`
+         );
+         console.log(data)
+         Swal.fire({
+           title: "Deleted!",
+           text: "Your Biodata been deleted.",
+           icon: "success",
+         });
+        refetch()
+       }
+     })
+    }
+    catch{
+     Swal.fire({
+       icon: "error",
+       title: "Oops...",
+       text: "Something is wrong!",
+    })}
     
-//      // sweet alart end
-//    } 
+     // sweet alart end
+   } 
 
   if (isLoading) return <LoadingSpinner />;
     return (
@@ -72,7 +71,7 @@ const MyContactRequest = () => {
             <h1>{biodata.biodataId}</h1>
             <h1>{biodata.status}</h1>
             <button className="text-red-700">
-              {/* <button onClick={() => handleDelete(biodata._id)}>Delete</button> */}
+              <button onClick={() => handleDelete(biodata?._id)}>Delete</button>
             </button>
           </div>
         ))}
