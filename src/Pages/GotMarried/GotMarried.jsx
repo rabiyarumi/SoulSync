@@ -69,7 +69,7 @@ const GotMarried = () => {
                  Bride Name
               </label>
               <input
-                className="w-full px-4 py-3 text-gray-800 border border-lime-300 focus:outline-lime-500 rounded-md bg-white"
+                className="w-full px-4 py-3 text-gray-800 border border-[#800020] focus:outline-[#800020] rounded-md bg-white"
                 name="brideName"
                 id="brideName"
                 type="text"
@@ -83,7 +83,7 @@ const GotMarried = () => {
               Groom Name
               </label>
               <input
-                className="w-full px-4 py-3 text-gray-800 border border-lime-300 focus:outline-lime-500 rounded-md bg-white"
+                className="w-full px-4 py-3 text-gray-800 border border-[#800020] focus:outline-[#800020] rounded-md bg-white"
                 name="groomName"
                 id="groomName"
                 type="text"
@@ -98,7 +98,7 @@ const GotMarried = () => {
               Bride BiodataId
               </label>
               <input
-                className="w-full px-4 py-3 text-gray-800 border border-lime-300 focus:outline-lime-500 rounded-md bg-white"
+                className="w-full px-4 py-3 text-gray-800 border border-[#800020] focus:outline-[#800020] rounded-md bg-white"
                 name="brideBiodataId"
                 id="brideBiodataId"
                 type="number"
@@ -112,7 +112,7 @@ const GotMarried = () => {
               Groom BiodataId
               </label>
               <input
-                className="w-full px-4 py-3 text-gray-800 border border-lime-300 focus:outline-lime-500 rounded-md bg-white"
+                className="w-full px-4 py-3 text-gray-800 border border-[#800020] focus:outline-[#800020] rounded-md bg-white"
                 name="groomBiodataId"
                 id="groomBiodataId"
                 type="number"
@@ -146,7 +146,7 @@ const GotMarried = () => {
                       accept="image/*"
                       hidden
                     />
-                    <div className="bg-lime-500 text-white border border-gray-300 rounded font-semibold cursor-pointer p-1 px-3 hover:bg-lime-500">
+                    <div className="bg-[#800020] text-white border border-gray-300 rounded font-semibold cursor-pointer p-1 px-3 hover:bg-[#800020]">
                       {uploadImage?.image?.name}
                     </div>
                   </label>
@@ -166,7 +166,7 @@ const GotMarried = () => {
               Married Story
               </label>
               <textarea
-                className="w-full px-4 py-3 text-gray-800 border border-lime-300 focus:outline-lime-500 rounded-md bg-white"
+                className="w-full px-4 py-3 text-gray-800 border border-[#800020] focus:outline-[#800020] rounded-md bg-white"
                 name="story"
                 id="story"
                 type="text"
@@ -178,7 +178,7 @@ const GotMarried = () => {
             {/* Submit Button */}
             <button
               type="submit"
-              className="w-full p-3 mt-5 text-center font-medium text-white transition duration-200 rounded shadow-md bg-lime-500 "
+              className="w-full p-3 mt-5 text-center font-medium text-white transition duration-200 rounded shadow-md bg-[#800020] "
             >
               {loading ? (
                 <TbFidgetSpinner className="animate-spin m-auto" />

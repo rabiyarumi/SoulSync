@@ -55,7 +55,7 @@ const CheckOut = () => {
                 Biodata Id
               </label>
               <input
-                className="w-full px-4 py-3 text-gray-800 border border-lime-300 focus:outline-lime-500 rounded-md bg-white"
+                className="w-full px-4 py-3 text-gray-800 border border-[#800020] focus:outline-[#800020] rounded-md bg-white"
                 name="biodataId"
                 value={id}
                 id="biodataId"
@@ -72,7 +72,7 @@ const CheckOut = () => {
                 Self Email
               </label>
               <input
-                className="w-full px-4 py-3 text-gray-800 border border-lime-300 focus:outline-lime-500 rounded-md bg-white"
+                className="w-full px-4 py-3 text-gray-800 border border-[#800020] focus:outline-[#800020] rounded-md bg-white"
                 name="email"
                 id="email"
                 type="email"
@@ -86,7 +86,7 @@ const CheckOut = () => {
             {/* Submit Button */}
             <button
             onClick={handleCheckout}
-              className="w-full p-3 mt-5 text-center font-medium text-white transition duration-200 rounded shadow-md bg-lime-500 "
+              className="w-full p-3 mt-5 text-center font-medium text-white transition duration-200 rounded shadow-md bg-[#800020] "
             >
               {loading ? (
                 <TbFidgetSpinner className="animate-spin m-auto" />

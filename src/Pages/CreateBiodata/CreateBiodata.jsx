@@ -111,7 +111,7 @@ const CreateBiodata = () => {
                 Name
               </label>
               <input
-                className="w-full px-4 py-3 text-gray-800 border border-lime-300 focus:outline-lime-500 rounded-md bg-white"
+                className="w-full px-4 py-3 text-gray-800 border border-[#800020] focus:outline-[#800020] rounded-md bg-white"
                 name="name"
                 
                 id="name"
@@ -127,7 +127,7 @@ const CreateBiodata = () => {
               </label>
               <select
                 required
-                className="w-full px-4 py-3 border-lime-300 focus:outline-lime-500 rounded-md bg-white"
+                className="w-full px-4 py-3 border-[#800020] focus:outline-[#800020] rounded-md bg-white"
                 name="gender"
                
               >
@@ -154,7 +154,7 @@ const CreateBiodata = () => {
                       accept="image/*"
                       hidden
                     />
-                    <div className="bg-lime-500 text-white border border-gray-300 rounded font-semibold cursor-pointer p-1 px-3 hover:bg-lime-500">
+                    <div className="bg-[#800020] text-white border border-gray-300 rounded font-semibold cursor-pointer p-1 px-3 hover:bg-[#800020]">
                       {uploadImage?.image?.name}
                     </div>
                   </label>
@@ -174,7 +174,7 @@ const CreateBiodata = () => {
                 Date of Birth
               </label>
               <input
-                className="w-full px-4 py-3 text-gray-800 border border-lime-300 focus:outline-lime-500 rounded-md bg-white"
+                className="w-full px-4 py-3 text-gray-800 border border-[#800020] focus:outline-[#800020] rounded-md bg-white"
                 name="birth"
                 
                 id="birth"
@@ -230,7 +230,7 @@ const CreateBiodata = () => {
                 Age
               </label>
               <input
-                className="w-full px-4 py-3 text-gray-800 border border-lime-300 focus:outline-lime-500 rounded-md bg-white"
+                className="w-full px-4 py-3 text-gray-800 border border-[#800020] focus:outline-[#800020] rounded-md bg-white"
                 name="age"
                
                 id="age"
@@ -285,7 +285,7 @@ const CreateBiodata = () => {
                 Fathers name
               </label>
               <input
-                className="w-full px-4 py-3 text-gray-800 border border-lime-300 focus:outline-lime-500 rounded-md bg-white"
+                className="w-full px-4 py-3 text-gray-800 border border-[#800020] focus:outline-[#800020] rounded-md bg-white"
                 name="fathersName"
                 
                 id="fathersName"
@@ -300,7 +300,7 @@ const CreateBiodata = () => {
                 Mothers name
               </label>
               <input
-                className="w-full px-4 py-3 text-gray-800 border border-lime-300 focus:outline-lime-500 rounded-md bg-white"
+                className="w-full px-4 py-3 text-gray-800 border border-[#800020] focus:outline-[#800020] rounded-md bg-white"
                 name="mothersName"
                 
                 id="mothersName"
@@ -351,7 +351,7 @@ const CreateBiodata = () => {
                 Partner Age
               </label>
               <input
-                className="w-full px-4 py-3 text-gray-800 border border-lime-300 focus:outline-lime-500 rounded-md bg-white"
+                className="w-full px-4 py-3 text-gray-800 border border-[#800020] focus:outline-[#800020] rounded-md bg-white"
                 name="partnerAge"
                
                 id="partnerAge"
@@ -404,7 +404,7 @@ const CreateBiodata = () => {
                 Contact Email
               </label>
               <input
-                className="w-full px-4 py-3 text-gray-800 border border-lime-300 focus:outline-lime-500 rounded-md bg-white"
+                className="w-full px-4 py-3 text-gray-800 border border-[#800020] focus:outline-[#800020] rounded-md bg-white"
                 name="contactEmail"
                 id="contactEmail"
                 type="email"
@@ -419,7 +419,7 @@ const CreateBiodata = () => {
                 Contact Number
               </label>
               <input
-                className="w-full px-4 py-3 text-gray-800 border border-lime-300 focus:outline-lime-500 rounded-md bg-white"
+                className="w-full px-4 py-3 text-gray-800 border border-[#800020] focus:outline-[#800020] rounded-md bg-white"
                 name="contactNumber"
                
                 id="contactNumber"
@@ -432,7 +432,7 @@ const CreateBiodata = () => {
             {/* Submit Button */}
             <button
               type="submit"
-              className="w-full p-3 mt-5 text-center font-medium text-white transition duration-200 rounded shadow-md bg-lime-500 "
+              className="w-full p-3 mt-5 text-center font-medium text-white transition duration-200 rounded shadow-md bg-[#800020] "
             >
               {loading ? (
                 <TbFidgetSpinner className="animate-spin m-auto" />

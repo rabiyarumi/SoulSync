@@ -112,7 +112,7 @@ const EditBiodataForm = () => {
                             Name
                           </label>
                           <input
-                            className="w-full px-4 py-3 text-gray-800 border border-lime-300 focus:outline-lime-500 rounded-md bg-white"
+                            className="w-full px-4 py-3 text-gray-800 border border-[#800020] focus:outline-[#800020] rounded-md bg-white"
                             name="name"
                             defaultValue={myBiodata?.name}
                             id="name"
@@ -128,7 +128,7 @@ const EditBiodataForm = () => {
                           </label>
                           <select
                             required
-                            className="w-full px-4 py-3 border-lime-300 focus:outline-lime-500 rounded-md bg-white"
+                            className="w-full px-4 py-3 border-[#800020] focus:outline-[#800020] rounded-md bg-white"
                             name="gender"
                             value={myGender}
                             onChange={(e) => setGender(e.target.value)}
@@ -156,7 +156,7 @@ const EditBiodataForm = () => {
                                   accept="image/*"
                                   hidden
                                 />
-                                <div className="bg-lime-500 text-white border border-gray-300 rounded font-semibold cursor-pointer p-1 px-3 hover:bg-lime-500">
+                                <div className="bg-[#800020] text-white border border-gray-300 rounded font-semibold cursor-pointer p-1 px-3 hover:bg-[#800020]">
                                   {uploadImage?.image?.name}
                                 </div>
                               </label>
@@ -177,7 +177,7 @@ const EditBiodataForm = () => {
                             Date of Birth
                           </label>
                           <input
-                            className="w-full px-4 py-3 text-gray-800 border border-lime-300 focus:outline-lime-500 rounded-md bg-white"
+                            className="w-full px-4 py-3 text-gray-800 border border-[#800020] focus:outline-[#800020] rounded-md bg-white"
                             name="birth"
                             defaultValue={myBiodata?.birth}
                             id="birth"
@@ -236,7 +236,7 @@ const EditBiodataForm = () => {
                             Age
                           </label>
                           <input
-                            className="w-full px-4 py-3 text-gray-800 border border-lime-300 focus:outline-lime-500 rounded-md bg-white"
+                            className="w-full px-4 py-3 text-gray-800 border border-[#800020] focus:outline-[#800020] rounded-md bg-white"
                             name="age"
                             defaultValue={myBiodata?.age}
                             id="age"
@@ -294,7 +294,7 @@ const EditBiodataForm = () => {
                             Fathers name
                           </label>
                           <input
-                            className="w-full px-4 py-3 text-gray-800 border border-lime-300 focus:outline-lime-500 rounded-md bg-white"
+                            className="w-full px-4 py-3 text-gray-800 border border-[#800020] focus:outline-[#800020] rounded-md bg-white"
                             name="fathersName"
                             defaultValue={myBiodata?.fathersName}
                             id="fathersName"
@@ -309,7 +309,7 @@ const EditBiodataForm = () => {
                             Mothers name
                           </label>
                           <input
-                            className="w-full px-4 py-3 text-gray-800 border border-lime-300 focus:outline-lime-500 rounded-md bg-white"
+                            className="w-full px-4 py-3 text-gray-800 border border-[#800020] focus:outline-[#800020] rounded-md bg-white"
                             name="mothersName"
                             defaultValue={myBiodata?.mothersName}
                             id="mothersName"
@@ -362,7 +362,7 @@ const EditBiodataForm = () => {
                             Partner Age
                           </label>
                           <input
-                            className="w-full px-4 py-3 text-gray-800 border border-lime-300 focus:outline-lime-500 rounded-md bg-white"
+                            className="w-full px-4 py-3 text-gray-800 border border-[#800020] focus:outline-[#800020] rounded-md bg-white"
                             name="partnerAge"
                             defaultValue={myBiodata?.partner?.age}
                             id="partnerAge"
@@ -417,7 +417,7 @@ const EditBiodataForm = () => {
                             Contact Email
                           </label>
                           <input
-                            className="w-full px-4 py-3 text-gray-800 border border-lime-300 focus:outline-lime-500 rounded-md bg-white"
+                            className="w-full px-4 py-3 text-gray-800 border border-[#800020] focus:outline-[#800020] rounded-md bg-white"
                             name="contactEmail"
                             id="contactEmail"
                             type="email"
@@ -433,7 +433,7 @@ const EditBiodataForm = () => {
                             Contact Number
                           </label>
                           <input
-                            className="w-full px-4 py-3 text-gray-800 border border-lime-300 focus:outline-lime-500 rounded-md bg-white"
+                            className="w-full px-4 py-3 text-gray-800 border border-[#800020] focus:outline-[#800020] rounded-md bg-white"
                             name="contactNumber"
                             defaultValue={myBiodata?.contact?.phone}
                             id="contactNumber"
@@ -446,7 +446,7 @@ const EditBiodataForm = () => {
                         {/* Submit Button */}
                         <button
                           type="submit"
-                          className="w-full p-3 mt-5 text-center font-medium text-white transition duration-200 rounded shadow-md bg-lime-500 "
+                          className="w-full p-3 mt-5 text-center font-medium text-white transition duration-200 rounded shadow-md bg-[#800020] "
                         >
                           {loading ? (
                             <TbFidgetSpinner className="animate-spin m-auto" />
