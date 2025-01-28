@@ -2,6 +2,8 @@ import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import Biodata from "./Biodata";
 import LoadingSpinner from "@/components/shared/LoadingSpinner";
+import BiodatasFilter from "./BiodatasFilter";
+import Container from "@/components/Layouts/Container";
 
 const Biodatads = () => {
 
@@ -16,10 +18,12 @@ const Biodatads = () => {
     if (isLoading) return <LoadingSpinner/>
     
     return (
-        <div className="max-w-[85%] mx-auto">
+        <Container>
+            <div className=" grid md:grid-cols-4 gap-4">
+            <BiodatasFilter/>
             {
                 biodatas && biodatas.length>0 ? 
-                <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-10">
+                <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-10 col-span-3">
                     {
                         biodatas.map(biodata => <Biodata key={biodata?._id} biodata={biodata}/>)
                     }
@@ -29,6 +33,7 @@ const Biodatads = () => {
                 
             }
         </div>
+        </Container>
     );
 };
 
