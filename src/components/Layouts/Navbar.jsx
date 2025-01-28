@@ -24,12 +24,12 @@ const Navbar = () => {
       <nav className="bg-white bg-opacity-55 shadow-md  py-3 sticky top-0 z-50 ">
       <div className=" flex items-center justify-between max-w-screen-xl w-[98%] md:w-[90%]  mx-auto">
         {/* Logo and Website Name */}
-        <div className="flex items-center gap-2">
+        <Link to={"/"} className="flex items-center gap-2">
           <img src={logo} alt="Logo" className=" h-12 w-10 " />
           <h1 className="text-xl md:text-2xl font-bold text-[#800020]">
             SoulSync
           </h1>
-        </div>
+        </Link>
 
         {/* Center Links */}
         <div className="hidden md:flex gap-6">
