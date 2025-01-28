@@ -1,4 +1,5 @@
 import Banner from "./Banner";
+import HowItWorks from "./HowItWorks";
 import PremiumBiodata from "./PremiumBiodata";
 
 const Home = () => {
@@ -7,6 +8,7 @@ const Home = () => {
         
         <Banner/>
         <PremiumBiodata/>
+        <HowItWorks/>
       </div>
     );
 };

@@ -90,7 +90,7 @@ const ContactUs = () => {
   
                 <div>
                   <h3 className="text-lg font-medium">Email</h3>
-                  <p className="text-gray-700">support@matrimonial.com</p>
+                  <p className="text-gray-700">support@soulsync.com</p>
                 </div>
   
                 <div>

@@ -17,30 +17,30 @@ const Biodatads = () => {
         maxAge: "",
       });
     
-      const { data: biodatas = [], isLoading } = useQuery({
-        queryKey: ["biodatas", filters], // Include filters in the query key
+      // const { data: biodatas = [], isLoading } = useQuery({
+      //   queryKey: ["biodatas", filters], // Include filters in the query key
   
-        queryFn: async () => {
-            console.log(filters)
-          const { data } = await axios.get(`${import.meta.env.VITE_API_URL}/biodatas`, {
-            params: filters, // Pass filters as query params
-          });
-          return data;
-        },
-        keepPreviousData: true, // Avoids data flickering during updates
-      });
+      //   queryFn: async () => {
+      //       console.log(filters)
+      //     const { data } = await axios.get(`${import.meta.env.VITE_API_URL}/biodatas`, {
+      //       params: filters, // Pass filters as query params
+      //     });
+      //     return data;
+      //   },
+      //   keepPreviousData: true, // Avoids data flickering during updates
+      // });
     
       const handleFilterChange = (updatedFilter) => {
         setFilters((prev) => ({ ...prev, ...updatedFilter }));
       };
 
-    // const {data: biodatas=[], isLoading} = useQuery({
-    //     queryKey: ['biodatas'],
-    //     queryFn: async () => {
-    //         const {data} =await axios(`${import.meta.env.VITE_API_URL}/biodatas`)
-    //         return data
-    //     }
-    // })
+    const {data: biodatas=[], isLoading} = useQuery({
+        queryKey: ['biodatas'],
+        queryFn: async () => {
+            const {data} =await axios(`${import.meta.env.VITE_API_URL}/biodatas`)
+            return data
+        }
+    })
 
     //================================================
 

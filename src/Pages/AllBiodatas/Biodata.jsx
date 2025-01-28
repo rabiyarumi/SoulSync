@@ -38,7 +38,7 @@ const Biodata = ({biodata}) => {
             </CardContent>
             <CardFooter>
                 <Link to={`/biodata/${_id}`}>
-                <Button variant="destructive">View Details</Button></Link>
+                <Button >View Details</Button></Link>
             </CardFooter>
            </Card>
         </Link>
