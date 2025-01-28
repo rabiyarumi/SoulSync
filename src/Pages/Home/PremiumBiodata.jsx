@@ -2,6 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import Biodata from "../AllBiodatas/Biodata";
 import Container from "@/components/Layouts/Container";
+import SectionHeaders from "@/components/Layouts/SectionHeaders";
 
 const PremiumBiodata = () => {
   // Fetch similar biodatas only when gender is available
@@ -20,9 +21,8 @@ const PremiumBiodata = () => {
   return (
     <Container>
         <div>
-      <div>
-        <h3>Explore Our Premium Biodatas</h3>
-      </div>
+          <SectionHeaders title={"Explore Our "} coloredTitle={"Premium Biodatas"}/>
+      
       <div className="grid grid-cols-1 md:grid-cols-3  gap-6">
         {premiumBiodatas?.map((biodata) => (
           <Biodata key={biodata?._id} biodata={biodata} />
