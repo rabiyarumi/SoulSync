@@ -1,4 +1,5 @@
 import { imageUpload } from "@/api/utils";
+import SectionHeaders from "@/components/Layouts/SectionHeaders";
 import useAuth from "@/hooks/useAuth";
 import axios from "axios";
 import { useState } from "react";
@@ -58,8 +59,8 @@ const GotMarried = () => {
   };
 
   return (
-    <div>
-      Gor Married
+    <div className="px-8">
+     <SectionHeaders title={""} coloredTitle={"Share Your Wedding Story"}/>
       <form onSubmit={handleSubmit}>
         <div className="">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
@@ -124,7 +125,7 @@ const GotMarried = () => {
             {/* Image */}
             <div className=" p-4  w-full  m-auto rounded-lg flex-grow">
             <label htmlFor="groomBiodataId" className="block text-gray-600 -mt-4">
-              Groom BiodataId
+              Upload Couple Image
               </label>
               <div className="file_upload px-5 py-3 relative border-4 border-dotted border-gray-300 rounded-lg">
                 
@@ -153,12 +154,12 @@ const GotMarried = () => {
                 </div>
               </div>
             </div>
-            {uploadImage && uploadImage?.image?.size && (
+            {/* {uploadImage && uploadImage?.image?.size && (
               <div className="flex gap-5 items-center">
                 <img className="w-20" src={uploadImage?.url} alt="" />
                 <p>Image Size: {uploadImage?.image?.size} Bytes</p>
               </div>
-            )}
+            )} */}
 
             {/* Description */}
             <div className="space-y-1 text-sm">
@@ -178,12 +179,12 @@ const GotMarried = () => {
             {/* Submit Button */}
             <button
               type="submit"
-              className="w-full p-3 mt-5 text-center font-medium text-white transition duration-200 rounded shadow-md bg-[#800020] "
+              className="w-full p-3 mt-5 text-center font-medium text-white transition duration-200 rounded shadow-md bg-[#800020] md:col-span-2"
             >
               {loading ? (
                 <TbFidgetSpinner className="animate-spin m-auto" />
               ) : (
-                "Save & Continue"
+                "Share"
               )}
             </button>
           </div>

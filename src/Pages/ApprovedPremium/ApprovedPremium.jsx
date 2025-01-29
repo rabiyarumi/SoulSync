@@ -3,6 +3,15 @@ import { Button } from '@/components/ui/button';
 import { useQuery } from '@tanstack/react-query';
 import axios from 'axios';
 import Swal from 'sweetalert2';
+import {
+  Table,
+  TableBody,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "@/components/ui/table";
+import SectionHeaders from '@/components/Layouts/SectionHeaders';
+
 
 const ApprovedPremium = () => {
 
@@ -58,6 +67,30 @@ const ApprovedPremium = () => {
 
     return (
         <div>
+
+<SectionHeaders title={""} coloredTitle={"Approved Premium Request"} />
+
+<Table className="w-full border rounded-lg">
+  <TableHeader>
+    <TableRow>
+      <TableHead>Name</TableHead>
+      <TableHead>Email</TableHead>
+      <TableHead>Biodata ID</TableHead>
+      <TableHead>Make Premium</TableHead>
+    </TableRow>
+  </TableHeader>
+  <TableBody>
+    {requestedUsers.map((singleUser) => (
+      <ApprovedPremium
+        key={singleUser?._id}
+        singleUser={singleUser}
+        handleRoleUpdate={handleRoleUpdate}
+      />
+    ))}
+  </TableBody>
+</Table>
+
+
             <h1>Requested User {requestedUsers?.length}</h1>
             <div className="grid grid-cols-3 gap-4">
                             {

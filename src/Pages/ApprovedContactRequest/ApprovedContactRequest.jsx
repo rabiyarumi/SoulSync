@@ -2,6 +2,16 @@ import { Button } from "@/components/ui/button";
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import Swal from "sweetalert2";
+import {
+  Table,
+  TableBody,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "@/components/ui/table";
+import LoadingSpinner from "@/components/shared/LoadingSpinner";
+import SectionHeaders from "@/components/Layouts/SectionHeaders";
+
 
 const ApprovedContactRequest = () => {
   const {
@@ -17,6 +27,8 @@ const ApprovedContactRequest = () => {
       return data;
     },
   });
+
+  if(isLoading) return <LoadingSpinner/>
 
   //-----------------------Upgrade biodata
  const handleContactAccept =  (id) => {
@@ -59,6 +71,30 @@ const ApprovedContactRequest = () => {
 
   return (
     <div>
+
+<SectionHeaders title={""} coloredTitle={"Approved contact requests"} />
+
+<Table className="w-full border rounded-lg">
+  <TableHeader>
+    <TableRow>
+      <TableHead>Name</TableHead>
+      <TableHead>Email</TableHead>
+      <TableHead>Biodata ID</TableHead>
+      <TableHead>Approved</TableHead>
+    </TableRow>
+  </TableHeader>
+  <TableBody>
+    {contactRequested.map((contact) => (
+      <ApprovedContactRequest
+        key={contact?._id}
+        contact={contact}
+        handleContactAccept={handleContactAccept}
+      />
+    ))}
+  </TableBody>
+</Table>
+
+
       Approved contact requests
       <div className="grid grid-cols-3 gap-4">
         {contactRequested?.map((contact) => (
