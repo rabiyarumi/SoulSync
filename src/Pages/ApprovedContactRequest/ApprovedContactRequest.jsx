@@ -11,15 +11,16 @@ import {
 } from "@/components/ui/table";
 import LoadingSpinner from "@/components/shared/LoadingSpinner";
 import SectionHeaders from "@/components/Layouts/SectionHeaders";
+import ApprovedContactTable from "./ApprovedContactTable";
 
 
 const ApprovedContactRequest = () => {
   const {
-    data: contactRequested = [],
+    data: allContactsRequest = [],
     isLoading,
     refetch,
   } = useQuery({
-    queryKey: ["allUsers"], // Include id in queryKey to ensure query invalidation
+    queryKey: ["allContactsRequest"], // Include id in queryKey to ensure query invalidation
     queryFn: async () => {
       const { data } = await axios(
         `${import.meta.env.VITE_API_URL}/purchase-contacts`
@@ -27,6 +28,8 @@ const ApprovedContactRequest = () => {
       return data;
     },
   });
+
+  console.log(allContactsRequest)
 
   if(isLoading) return <LoadingSpinner/>
 
@@ -77,15 +80,17 @@ const ApprovedContactRequest = () => {
 <Table className="w-full border rounded-lg">
   <TableHeader>
     <TableRow>
-      <TableHead>Name</TableHead>
       <TableHead>Email</TableHead>
       <TableHead>Biodata ID</TableHead>
+      <TableHead>Status</TableHead>
       <TableHead>Approved</TableHead>
     </TableRow>
   </TableHeader>
   <TableBody>
-    {contactRequested.map((contact) => (
-      <ApprovedContactRequest
+
+    
+    {allContactsRequest?.map((contact) => (
+      <ApprovedContactTable
         key={contact?._id}
         contact={contact}
         handleContactAccept={handleContactAccept}
@@ -95,20 +100,6 @@ const ApprovedContactRequest = () => {
 </Table>
 
 
-      Approved contact requests
-      <div className="grid grid-cols-3 gap-4">
-        {contactRequested?.map((contact) => (
-          <div key={contact?._id} className="p-4 border-2">
-            <p>{contact?.email}</p>
-            <p>Biodata Id: {contact?.biodataId}</p>
-            <p>Status: {contact?.status}</p>
-
-            <Button variant="outline" onClick={() => handleContactAccept(contact?._id)}>
-              <p>Accept</p>
-            </Button>
-          </div>
-        ))}
-      </div>
     </div>
   );
 };

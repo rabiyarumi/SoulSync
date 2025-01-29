@@ -8,9 +8,9 @@ const ApprovedContactTable = ({ contact, handleContactAccept }) => {
   const { user } = useAuth();
   return (
     <TableRow key={contact?._id}>
-      <TableCell>{contact?.name}</TableCell>
       <TableCell>{contact?.email}</TableCell>
       <TableCell>{contact?.biodataId}</TableCell>
+      <TableCell>{contact?.status}</TableCell>
 
       <TableCell className="text-center">
         <Button
