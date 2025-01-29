@@ -29,7 +29,6 @@ const ApprovedContactRequest = () => {
     },
   });
 
-  console.log(allContactsRequest)
 
   if(isLoading) return <LoadingSpinner/>
 

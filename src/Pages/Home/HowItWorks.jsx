@@ -1,11 +1,12 @@
 import Container from '@/components/Layouts/Container';
+import SectionHeaders from '@/components/Layouts/SectionHeaders';
 import { FaHandshake, FaRegHeart, FaUsers } from 'react-icons/fa';
 const HowItWorks = () => {
     return (
        <Container>
          <section className="">
       <div className="max-w-6xl mx-auto text-center">
-        <h2 className="text-3xl font-bold text-[#800020] mb-8">How It Works</h2>
+      <SectionHeaders title={""} coloredTitle={"How It Works"} />
         <div className="grid md:grid-cols-3 gap-8">
           <div className="bg-[#800020] text-white p-6 rounded-lg shadow-lg">
             <FaHandshake className="text-5xl mb-4 mx-auto" />
