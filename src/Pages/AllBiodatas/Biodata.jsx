@@ -1,6 +1,7 @@
 /* eslint-disable react/prop-types */
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
+import Marquee from 'react-fast-marquee';
 import { Link } from 'react-router-dom';
 
 const Biodata = ({biodata}) => {
@@ -24,7 +25,8 @@ const Biodata = ({biodata}) => {
       } = biodata || {}
 
     return (
-        <div>
+        
+            <div>
         <Link to={`/biodata/${_id}`}>
            <Card>
            <img src={image} alt="" className='h-56  w-full rounded-t-xl'/>
@@ -43,6 +45,7 @@ const Biodata = ({biodata}) => {
            </Card>
         </Link>
         </div>
+       
     );
 };
 
