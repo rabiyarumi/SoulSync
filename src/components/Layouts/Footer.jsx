@@ -1,12 +1,14 @@
 import { FaFacebook, FaTwitter, FaInstagram } from 'react-icons/fa';
 import logo from "../../assets/love.png"
+import Container from './Container';
 
 const Footer = () => {
     return (
         <footer className="bg-[#800020] text-white py-6">
-        <div className="container mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-6">
+       <Container>
+       <div className="container mx-auto px-4 flex flex-col md:flex-row justify-between gap-6">
           {/* Logo and Description */}
-          <div className="flex flex-col items-center md:items-start">
+          <div className="flex flex-col items-center md:items-start md:w-1/3">
             <img src={logo} alt="Logo" className="h-24 " />
             <p className="text-center md:text-left">
               Welcome to our matrimonial page, where we help you find your perfect match with love and trust.
@@ -45,6 +47,7 @@ const Footer = () => {
         <div className="text-center border-t border-gray-300 mt-6 pt-4">
           <p>&copy; {new Date().getFullYear()} Matrimonial Page. All rights reserved.</p>
         </div>
+       </Container>
       </footer>
     );
 };
