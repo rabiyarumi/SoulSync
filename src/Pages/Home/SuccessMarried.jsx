@@ -5,6 +5,7 @@ import { Card, CardContent } from '@/components/ui/card';
 import { useQuery } from '@tanstack/react-query';
 import axios from 'axios';
 import { motion } from "framer-motion";
+import Marquee from 'react-fast-marquee';
 
 const SuccessMarried = () => {
     
@@ -24,11 +25,12 @@ const SuccessMarried = () => {
     return (
         <Container>
             <SectionHeaders title={"Explore Our"} coloredTitle={" Married Story"} />
-            <div className='grid grid-cols-1 md:grid-cols-3 gap-4'>
+           <div className=''>
+           <Marquee className='flex gap-8'>
                 {successStory?.slice(0,6).map(story => 
                     <motion.div
                     key={story?._id}
-                    className=" relative group"
+                    className=" relative group ml-4"
                     whileHover={{ scale: 1.05 }}
                   >
                     <Card className="overflow-hidden rounded-2xl shadow-lg">
@@ -50,6 +52,7 @@ const SuccessMarried = () => {
                     </Card>
                   </motion.div>
                 )}
+           </Marquee>
             </div>
         </Container>
     );
