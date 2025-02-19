@@ -94,7 +94,7 @@ const Details = () => {
     return (
        <>
         <div className="flex gap-10">
-            <div>
+            <div className="border-l-2">
             <img src={image} alt="" />
             </div>
            <div>
