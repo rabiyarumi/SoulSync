@@ -31,8 +31,8 @@ const Biodata = ({ biodata }) => {
   } = biodata || {};
 
   return (
-    <div className="h-96">
-      <Link to={`/biodata/${_id}`}>
+    <div>
+      <Link to={`/biodata/${_id}`}  className="h-96">
         <Card className="flex flex-col" >
           <img src={image} alt="" className="h-56  w-full rounded-t-xl" />
           <CardHeader className="flex flex-row gap-4">
