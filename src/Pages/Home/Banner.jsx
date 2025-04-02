@@ -43,37 +43,7 @@ const Banner = () => {
         </motion.div>
       </div>
     </div>
-         {/* <Swiper
-          pagination={{
-            dynamicBullets: true,
-          }}
-          modules={[Pagination]}
-          className="mySwiper"
-        >
-            <SwiperSlide>
-            <img src={married1} alt="" className='w-full h-[calc(100vh*2/3)] xl:h-[calc(100vh*3/4)]' />
-          </SwiperSlide>
-            <SwiperSlide>
-            <img src={banner1} alt="" className='w-full max-h-[850px]' />
-          </SwiperSlide>
-           <SwiperSlide>
-            <img src={banner2} alt="" className='w-full max-h-[850px]' />
-          </SwiperSlide> 
-             <SwiperSlide>
-            <img src={banner3} alt="" className='w-full max-h-[850px]' />
-          </SwiperSlide>
-           
-          <SwiperSlide>
-            <img src={banner4} alt="" className='w-full max-h-[850px]' />
-          </SwiperSlide>
-          <SwiperSlide>
-            <img src={banner5} alt="" className='w-full max-h-[850px]' />
-          </SwiperSlide>
-          
-          <SwiperSlide>
-            <img src={banner6} alt="" className='w-full max-h-[850px]' />
-          </SwiperSlide>
-        </Swiper>  */}
+       
       </>
     );
 };

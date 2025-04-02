@@ -54,7 +54,7 @@ const Biodatads = () => {
             <BiodatasFilter filters={filters} onFilterChange={handleFilterChange}/>
             {
                 biodatas && biodatas.length>0 ? 
-                <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-10 col-span-3">
+                <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-10 col-span-3">
                     {
                         biodatas.map(biodata => <Biodata key={biodata?._id} biodata={biodata}/>)
                     }
