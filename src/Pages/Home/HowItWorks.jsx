@@ -13,7 +13,7 @@ const HowItWorks = () => {
               <h3 className="text-xl font-semibold mb-4">
                 Create Your Profile
               </h3>
-              <p>
+              <p className="">
                 Sign up and create your personalized profile to start your
                 journey of finding the perfect match.
               </p>
