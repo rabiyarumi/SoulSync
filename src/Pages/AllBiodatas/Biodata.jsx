@@ -38,11 +38,9 @@ const Biodata = ({ biodata }) => {
     <div>
       <Link to={`/biodata/${biodata._id}`}>
         <Card className=" w-80">
-          <img
-            src={biodata?.image}
-            alt=""
-            className="h-56   rounded-t-xl w-80"
-          />
+          <div className="bg-cover bg-center h-72 w-80 rounded-t-xl" style={{ backgroundImage: `url(${biodata?.image})` }}>
+          
+          </div>
           <CardHeader className="flex flex-row gap-4">
             <CardTitle className="text-[#800020]">{biodata?.name}</CardTitle>
           </CardHeader>
