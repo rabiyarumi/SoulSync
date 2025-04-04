@@ -50,7 +50,7 @@ const ViewBiodata = () => {
           const { data } = axios.delete(
             `${import.meta.env.VITE_API_URL}/biodatas/${_id}`
           );
-          console.log(data);
+          // console.log(data);
           Swal.fire({
             title: "Deleted!",
             text: "Your Biodata been deleted.",
@@ -88,7 +88,7 @@ const ViewBiodata = () => {
           const { data } = await axios.patch(
             `${import.meta.env.VITE_API_URL}/users/${user?.email}`
           );
-          console.log(data);
+          // console.log(data);
           Swal.fire({
             icon: "success",
             title: "Wait for Response",

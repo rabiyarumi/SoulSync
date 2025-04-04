@@ -44,7 +44,6 @@ const MyContactRequest = () => {
           const { data } = axios.delete(
             `${import.meta.env.VITE_API_URL}/purchase-contacts/${_id}`
           );
-          console.log(data);
           Swal.fire({
             title: "Deleted!",
             text: "Your Biodata been deleted.",

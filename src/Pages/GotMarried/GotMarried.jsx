@@ -41,7 +41,7 @@ const GotMarried = () => {
           await axios
             .post(`${import.meta.env.VITE_API_URL}/married-stories`, marriedData)
             .then((data) => {
-              console.log(data);
+              // console.log(data);
             });
           Swal.fire({
             position: "top-end",

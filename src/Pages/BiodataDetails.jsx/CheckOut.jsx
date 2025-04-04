@@ -20,7 +20,7 @@ const CheckOut = () => {
     const amount= 5
 
     const purchaseInfo = {biodataId, email, status, amount}
-    console.log(purchaseInfo)
+    
     //post contact request to db
      // save biodata in db
      try {
@@ -28,7 +28,7 @@ const CheckOut = () => {
         await axios
           .post(`${import.meta.env.VITE_API_URL}/purchase-contacts`, purchaseInfo)
           .then((data) => {
-            console.log(data);
+            
           });
         Swal.fire({
           position: "top-end",

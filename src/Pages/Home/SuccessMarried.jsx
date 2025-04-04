@@ -29,7 +29,6 @@ const SuccessMarried = () => {
         // enabled: !!gender, // Ensure this query runs only when gender is available
     });
 
-    console.log(successStory)
 
     if (isLoading) return <LoadingSpinner/>
     return (

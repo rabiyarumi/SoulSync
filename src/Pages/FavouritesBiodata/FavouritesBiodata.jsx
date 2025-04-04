@@ -49,7 +49,7 @@ const FavouritesBiodata = () => {
           const { data } = axios.delete(
             `${import.meta.env.VITE_API_URL}/fav-biodatas/${_id}`
           );
-          console.log(data);
+          
           Swal.fire({
             title: "Deleted!",
             text: "Your Biodata been deleted.",

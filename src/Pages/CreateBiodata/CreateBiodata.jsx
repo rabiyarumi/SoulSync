@@ -12,7 +12,7 @@ import SectionHeaders from "@/components/Layouts/SectionHeaders";
 const CreateBiodata = () => {
   const { user } = useAuth();
   const { myBiodata } = useUserBiodata();
-  console.log(myBiodata);
+ 
   const [uploadImage, setUploadImage] = useState({
     image: { name: "Upload Button" },
   });

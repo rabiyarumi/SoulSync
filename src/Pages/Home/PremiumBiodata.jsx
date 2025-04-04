@@ -35,7 +35,6 @@ const PremiumBiodata = () => {
     // Ensure this query runs only when gender is available
   });
 
-  console.log(premiumBiodatas);
   return (
     <Container>
       

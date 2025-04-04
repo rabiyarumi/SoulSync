@@ -50,7 +50,7 @@ const ApprovedContactRequest = () => {
        const { data } =await  axios.patch(
          `${import.meta.env.VITE_API_URL}/purchase-contacts/${id}`
        );
-       console.log(data)
+       
        Swal.fire({
          icon: "success",
          

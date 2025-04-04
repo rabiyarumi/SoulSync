@@ -10,7 +10,7 @@ import Swal from "sweetalert2";
 const EditBiodataForm = () => {
     const { user } = useAuth();
   const { myBiodata } = useUserBiodata();
-  console.log(myBiodata);
+ 
   const [uploadImage, setUploadImage] = useState({
     image: { name: "Upload Button" },
   });
@@ -85,7 +85,7 @@ const EditBiodataForm = () => {
             // post req
             await axios.patch(`${import.meta.env.VITE_API_URL}/biodatas/${myBiodata._id}`, biodata)
               .then((data) => {
-                console.log(data);
+                // console.log(data);
               });
             Swal.fire({
               position: "top-end",

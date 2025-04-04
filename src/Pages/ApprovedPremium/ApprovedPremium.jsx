@@ -45,7 +45,7 @@ const ApprovedPremium = () => {
        const { data } =await  axios.patch(
          `${import.meta.env.VITE_API_URL}/users/role/${email}`, {role: roleValue}
        );
-       console.log(data)
+       
        Swal.fire({
          icon: "success",
          

@@ -55,7 +55,7 @@ const Details = () => {
     contact,
   } = biodata || {};
   const accurateHeight = height?.split("-");
-  console.log(accurateHeight);
+ 
 
   // Fetch similar biodatas only when gender is available
   const { data: similarBiodatas = [], isLoading: isSimilarLoading } = useQuery({
@@ -91,7 +91,7 @@ const Details = () => {
       await axios
         .post(`${import.meta.env.VITE_API_URL}/fav-biodatas`, favoriteBiodata)
         .then((data) => {
-          console.log(data);
+          
         });
       Swal.fire({
         position: "top-end",
