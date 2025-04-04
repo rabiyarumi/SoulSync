@@ -39,7 +39,7 @@ const FAQ = () => {
           {/* <p className="text-gray-600 mb-8">Find answers to the most common questions about our platform.</p> */}
       
   
-        <div className="max-w-3xl mx-auto">
+        <div className=" mx-auto">
           {faqs.map((faq, index) => (
             <motion.div
               key={index}
