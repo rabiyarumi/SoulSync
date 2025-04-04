@@ -12,14 +12,14 @@ const ContactRequestTable = ({ biodata, handleDelete }) => {
 
       <TableCell>
         {biodata?.status === "Purchased" ? (
-          <span>{biodata?.contactEmail}</span>
+          <span>{biodata?.contactNumber}</span>
         ) : (
           ""
         )}
       </TableCell>
       <TableCell>
         {biodata?.status === "Purchased" ? (
-          <span>{biodata?.contactNumber}</span>
+          <span>{biodata?.contactEmail}</span>
         ) : (
           ""
         )}
