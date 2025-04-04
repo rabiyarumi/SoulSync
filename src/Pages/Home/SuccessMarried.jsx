@@ -5,10 +5,20 @@ import { Card, CardContent } from '@/components/ui/card';
 import { useQuery } from '@tanstack/react-query';
 import axios from 'axios';
 import { motion } from "framer-motion";
-import Marquee from 'react-fast-marquee';
+
+
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay, Navigation, Pagination } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/navigation";
+import { useRef } from "react";
 
 const SuccessMarried = () => {
     
+  const swiperRef = useRef(null);
+
+
      // Fetch similar biodatas only when gender is available
      const { data: successStory = [], isLoading, refetch } = useQuery({
         queryKey: ['successStory'], // Include gender in queryKey
@@ -23,38 +33,43 @@ const SuccessMarried = () => {
 
     if (isLoading) return <LoadingSpinner/>
     return (
-        <Container>
-            <SectionHeaders title={"Explore Our"} coloredTitle={" Married Story"} />
-           <div className=''>
-           <Marquee className='flex gap-8'>
-                {successStory?.slice(0,6).map(story => 
-                    <motion.div
-                    key={story?._id}
-                    className=" relative group ml-4"
-                    whileHover={{ scale: 1.05 }}
-                  >
-                    <Card className="overflow-hidden rounded-2xl shadow-lg">
-                      <div className="relative">
-                        <img
-                          src={story?.image}
-                          alt="Wedding"
-                          className="w-full h-52 object-cover rounded-t-2xl"
-                        />
-                        <motion.div
-                          className="absolute inset-0 bg-black bg-opacity-70 flex items-center justify-center p-4 text-white text-center opacity-0 group-hover:opacity-100 transition-opacity"
-                        >
-                          {story?.marriedStory}
-                        </motion.div>
-                      </div>
-                      <CardContent className="p-4 text-center">
-                        <h3 className="text-lg font-semibold text-[#800020] h-12 lg:h-auto">{story?.brideName} & {story?.groomName}</h3>
-                      </CardContent>
-                    </Card>
-                  </motion.div>
-                )}
-           </Marquee>
+      <Container>
+      <SectionHeaders title="Explore Our" coloredTitle="Married Story" />
+      
+      {/* Swiper Carousel */}
+      <Swiper
+        modules={[Autoplay, Navigation, Pagination]}
+        slidesPerView={1}
+        loop={true}
+        autoplay={{ delay: 5000, disableOnInteraction: false }}
+        navigation={true}
+        pagination={{ clickable: true }}
+        onSwiper={(swiper) => (swiperRef.current = swiper)} 
+        className="w-full"
+        onMouseEnter={() => swiperRef.current?.autoplay.stop()} 
+        onMouseLeave={() => swiperRef.current?.autoplay.start()} 
+      >
+        {successStory?.map((story) => (
+          <SwiperSlide key={story?._id}>
+            <div className="flex flex-col md:flex-row items-center gap-6 p-4">
+              
+              {/* Left: Image */}
+              <div className="w-full md:w-1/2">
+                <img src={story?.image} alt="Wedding" className="w-full h-56 object-cover rounded-lg shadow-lg" />
+              </div>
+              
+              {/* Right: Couple Details */}
+              <div className="w-full md:w-1/2 bg-white p-6 rounded-lg">
+                <h3 className="text-2xl font-bold text-[#800020] mb-2">
+                  {story?.brideName} & {story?.groomName}
+                </h3>
+                <p className="text-gray-700">{story?.marriedStory}</p>
+              </div>
             </div>
-        </Container>
+          </SwiperSlide>
+        ))}
+      </Swiper>
+    </Container>
     );
 };
 
