@@ -122,13 +122,13 @@ const EditBiodataForm = () => {
                           />
                         </div>
                         {/* Biodata Type */}
-                        <div className="space-y-1 text-sm">
+                        <div className="space-y-1 text-sm ">
                           <label htmlFor="category" className="block text-gray-600 ">
                             Gender
                           </label>
                           <select
                             required
-                            className="w-full px-4 py-3 border-[#800020] focus:outline-[#800020] rounded-md bg-white"
+                            className="w-full px-4 py-3 border-[1px] border-[#800020] focus:outline-[#800020] rounded-md bg-white"
                             name="gender"
                             value={myGender}
                             onChange={(e) => setGender(e.target.value)}
@@ -186,52 +186,8 @@ const EditBiodataForm = () => {
                             required
                           />
                         </div>
-                        {/* Height */}
-                        <div className="space-y-1 text-sm">
-                          <label htmlFor="name" className="block text-gray-600">
-                            Height (in feet)
-                          </label>
-            
-                          <select
-                            id="height"
-                            name="height"
-                            value={myHeight}
-                            onChange={(e) => setHight(e.target.value)}
-                            required
-                          >
-                            <option value="" disabled>
-                              Select your height range
-                            </option>
-                            <option value="4-4.5">4-4.5 ft</option>
-                            <option value="4.6-5">4.6-5 ft</option>
-                            <option value="5.1-5.5">5.1-5.5 ft</option>
-                            <option value="5.6-6">5.6-6 ft</option>
-                            <option value="6.1-6.5">6.1-6.5 ft</option>
-                          </select>
-                        </div>
-                        {/* Weight */}
-                        <div className="space-y-1 text-sm">
-                          <label htmlFor="name" className="block text-gray-600">
-                            Weight
-                          </label>
-                          <select id="weight" name="weight" required
-                          value={myWeight}
-                          onChange={(e) => setWeight(e.target.value)}>
-                            <option value="" disabled >
-                              Select your weight range
-                            </option>
-                            <option value="40-45">40-45 kg</option>
-                            <option value="46-50">46-50 kg</option>
-                            <option value="51-55">51-55 kg</option>
-                            <option value="56-60">56-60 kg</option>
-                            <option value="61-65">61-65 kg</option>
-                            <option value="66-70">66-70 kg</option>
-                            <option value="71-75">71-75 kg</option>
-                            <option value="76-80">76-80 kg</option>
-                          </select>
-                        </div>
-                        {/* Age */}
-                        <div className="space-y-1 text-sm">
+                         {/* Age */}
+                         <div className="space-y-1 text-sm">
                           <label htmlFor="name" className="block text-gray-600">
                             Age
                           </label>
@@ -245,39 +201,93 @@ const EditBiodataForm = () => {
                             required
                           />
                         </div>
-            
-                        {/* Occupation */}
+                        {/* Height in feet*/}
                         <div className="space-y-1 text-sm">
                           <label htmlFor="name" className="block text-gray-600">
-                            Occupation
+                            Height (in feet)
                           </label>
-                          <select id="occupation" name="occupation" required 
-                          value={myOccupation}
-                          onChange={(e) => setOccupation(e.target.value)}>
-                            <option value="" disabled >
-                              Select your occupation
+            
+                          <select
+                            id="height"
+                            name="height"
+                            value={myHeight}
+                            onChange={(e) => setHight(e.target.value)}
+                            required
+                            className="w-full px-4 py-3 border-[1px] border-[#800020] focus:outline-[#800020] rounded-md bg-white"
+                          >
+                            <option value="" disabled>
+                              Select your height range
                             </option>
-                            <option value="engineer">Engineer</option>
-                            <option value="doctor">Doctor</option>
-                            <option value="teacher">Teacher</option>
-                            <option value="business">Businessperson</option>
-                            <option value="artist">Artist</option>
-                            <option value="lawyer">Lawyer</option>
-                            <option value="banker">Banker</option>
-                            <option value="software_developer">Software Developer</option>
-                            <option value="government_service">Government Service</option>
-                            <option value="student">Student</option>
-                            <option value="homemaker">Homemaker</option>
-                            <option value="others">Others</option>
+                            <option value="4">4 ft</option>
+                            <option value="5">5 ft</option>
+                            <option value="6">6 ft</option>
+                            <option value="7">7 ft</option>
+                            
                           </select>
                         </div>
-                        {/* Race */}
+                        {/* Height in inches*/}
                         <div className="space-y-1 text-sm">
+                          <label htmlFor="name" className="block text-gray-600">
+                            Height (in inches)
+                          </label>
+            
+                          <select
+                            id="height"
+                            name="height"
+                            value={myHeight}
+                            onChange={(e) => setHight(e.target.value)}
+                            required
+                            className="w-full px-4 py-3 border-[1px] border-[#800020] focus:outline-[#800020] rounded-md bg-white"
+                          >
+                            <option value="" disabled>
+                              Select your height range
+                            </option>
+                            <option value="1">1 inch</option>
+                            <option value="2">2 inch</option>
+                            <option value="3">3 inch</option>
+                            <option value="4">4 inch</option>
+                            <option value="5">5 inch</option>
+                            <option value="6">6 inch</option>
+                            <option value="7">7 inch</option>
+                            <option value="8">8 inch</option>
+                            <option value="9">9 inch</option>
+                            <option value="10">10 inch</option>
+                            <option value="11">11 inch</option>
+                            <option value="12">12 inch</option>
+                            
+                          </select>
+                        </div>
+                        {/* Weight */}
+                        <div className="space-y-1 text-sm">
+                          <label htmlFor="name" className="block text-gray-600">
+                            Weight
+                          </label>
+                          <select id="weight" name="weight" required
+                          value={myWeight}
+                          onChange={(e) => setWeight(e.target.value)}
+                          className="w-full px-4 py-3 border-[1px] border-[#800020] focus:outline-[#800020] rounded-md bg-white">
+                            <option value="" disabled >
+                              Select your weight range
+                            </option>
+                            <option value="40-45">40-45 kg</option>
+                            <option value="46-50">46-50 kg</option>
+                            <option value="51-55">51-55 kg</option>
+                            <option value="56-60">56-60 kg</option>
+                            <option value="61-65">61-65 kg</option>
+                            <option value="66-70">66-70 kg</option>
+                            <option value="71-75">71-75 kg</option>
+                            <option value="76-80">76-80 kg</option>
+                            <option value="81-85">81-85 kg</option>
+                            <option value="86-90">85-90 kg</option>
+                          </select>
+                        </div>
+                       {/* Race */}
+                       <div className="space-y-1 text-sm">
                           <label htmlFor="name" className="block text-gray-600">
                             Race / Skin Color
                           </label>
                           <select id="race" name="race" required value={myRace}
-                            onChange={(e) => setRace(e.target.value)}>
+                            onChange={(e) => setRace(e.target.value)} className="w-full px-4 py-3 border-[1px] border-[#800020] focus:outline-[#800020] rounded-md bg-white">
                             <option value="" disabled >
                               Select your race/skin color
                             </option>
@@ -288,6 +298,33 @@ const EditBiodataForm = () => {
                             <option value="others">Others</option>
                           </select>
                         </div>
+            
+                        {/* Occupation */}
+                        <div className="space-y-1 text-sm">
+                          <label htmlFor="name" className="block text-gray-600">
+                            Occupation
+                          </label>
+                          <select id="occupation" name="occupation" required 
+                          value={myOccupation}
+                          onChange={(e) => setOccupation(e.target.value)} className="w-full px-4 py-3 border-[1px] border-[#800020] focus:outline-[#800020] rounded-md bg-white">
+                            <option value="" disabled >
+                              Select your occupation
+                            </option>
+                            <option value="engineer">Engineer</option>
+                            <option value="doctor">Doctor</option>
+                            <option value="teacher">Teacher</option>
+                            <option value="business">Businessperson</option>
+                            <option value="artist">Artist</option>
+                            <option value="lawyer">Lawyer</option>
+                            <option value="banker">Banker</option>
+                            <option value="software_developer">Developer/Programmer</option>
+                            <option value="government_service">Government Service</option>
+                            <option value="student">Student</option>
+                            <option value="homemaker">Homemaker</option>
+                            <option value="others">Others</option>
+                          </select>
+                        </div>
+                        
                         {/* Fathers name */}
                         <div className="space-y-1 text-sm">
                           <label htmlFor="fathersName" className="block text-gray-600">
@@ -324,7 +361,7 @@ const EditBiodataForm = () => {
                             Division:
                           </label>
                           <select id="division" name="division" required value={myDivision}
-                            onChange={(e) => setDivision(e.target.value)}>
+                            onChange={(e) => setDivision(e.target.value)} className="w-full px-4 py-3 border-[1px] border-[#800020] focus:outline-[#800020] rounded-md bg-white">
                             <option value="" disabled >
                               Select your permanent division
                             </option>
@@ -343,7 +380,7 @@ const EditBiodataForm = () => {
                             District:
                           </label>
                           <select id="district" name="district" required value={myDistrict}
-                            onChange={(e) => setDistrict(e.target.value)}>
+                            onChange={(e) => setDistrict(e.target.value)} className="w-full px-4 py-3 border-[1px] border-[#800020] focus:outline-[#800020] rounded-md bg-white">
                             <option value="" disabled >
                               Select your District
                             </option>
@@ -379,15 +416,46 @@ const EditBiodataForm = () => {
                           </label>
             
                           <select id="partnerHeight" name="partnerHeight" required value={myPartnerHeight}
-                            onChange={(e) => setPartnerHeight(e.target.value)}>
+                            onChange={(e) => setPartnerHeight(e.target.value)} className="w-full px-4 py-3 border-[1px] border-[#800020] focus:outline-[#800020] rounded-md bg-white">
                             <option value="" disabled >
                               Select your Expected height range
                             </option>
-                            <option value="4-4.5">4-4.5</option>
-                            <option value="4.6-5">4.6-5</option>
-                            <option value="5.1-5.5">5.1-5.5</option>
-                            <option value="5.6-6">5.6-6</option>
-                            <option value="6.1-6.5">6.1-6.5</option>
+                            <option value="4">4 ft</option>
+                            <option value="5">5 ft</option>
+                            <option value="6">6 ft</option>
+                            <option value="7">7 ft</option>
+                          </select>
+                        </div>
+                        {/* Partner Height in inches*/}
+                        <div className="space-y-1 text-sm">
+                          <label htmlFor="name" className="block text-gray-600">
+                            Height (in inches)
+                          </label>
+            
+                          <select
+                            id="height"
+                            name="height"
+                            value={myHeight}
+                            onChange={(e) => setHight(e.target.value)}
+                            required
+                            className="w-full px-4 py-3 border-[1px] border-[#800020] focus:outline-[#800020] rounded-md bg-white"
+                          >
+                            <option value="" disabled>
+                              Select your height range
+                            </option>
+                            <option value="1">1 inch</option>
+                            <option value="2">2 inch</option>
+                            <option value="3">3 inch</option>
+                            <option value="4">4 inch</option>
+                            <option value="5">5 inch</option>
+                            <option value="6">6 inch</option>
+                            <option value="7">7 inch</option>
+                            <option value="8">8 inch</option>
+                            <option value="9">9 inch</option>
+                            <option value="10">10 inch</option>
+                            <option value="11">11 inch</option>
+                            <option value="12">12 inch</option>
+                            
                           </select>
                         </div>
                         {/* Partner Weight */}
@@ -396,7 +464,7 @@ const EditBiodataForm = () => {
                             Partner Weight
                           </label>
                           <select id="partnerWeight" name="partnerWeight" required value={myPartnerWeight}
-                            onChange={(e) => setPartnerWeight(e.target.value)}>
+                            onChange={(e) => setPartnerWeight(e.target.value)} className="w-full px-4 py-3 border-[1px] border-[#800020] focus:outline-[#800020] rounded-md bg-white">
                             <option value="" disabled >
                               Select your Expected weight range
                             </option>
