@@ -37,7 +37,7 @@ const WhyChooseUs = () => {
       <SectionHeaders title={"Why "} coloredTitle={"Choose Us"} />
 
       
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8  w-full mx-auto">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8  w-full mx-auto mb-20">
         {features.map((feature, index) => (
           <motion.div
             key={index}

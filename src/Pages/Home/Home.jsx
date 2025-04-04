@@ -1,4 +1,5 @@
 import Banner from "./Banner";
+import FAQ from "./FAQ";
 import HowItWorks from "./HowItWorks";
 import MembershipPlan from "./MembershipPlan";
 import PremiumBiodata from "./PremiumBiodata";
@@ -15,6 +16,7 @@ const Home = () => {
         <WhyChooseUs />
         <MembershipPlan />
         <SuccessMarried/>
+        <FAQ />
       </div>
     );
 };

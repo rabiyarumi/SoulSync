@@ -34,7 +34,7 @@ const SuccessMarried = () => {
     if (isLoading) return <LoadingSpinner/>
     return (
       <Container>
-      <SectionHeaders title="Explore Our" coloredTitle="Married Story" />
+      <SectionHeaders title="Explore Our " coloredTitle="Married Story" />
       
       {/* Swiper Carousel */}
       <Swiper
@@ -45,13 +45,13 @@ const SuccessMarried = () => {
         navigation={true}
         pagination={{ clickable: true }}
         onSwiper={(swiper) => (swiperRef.current = swiper)} 
-        className="w-full"
+        className="w-full mb-16"
         onMouseEnter={() => swiperRef.current?.autoplay.stop()} 
         onMouseLeave={() => swiperRef.current?.autoplay.start()} 
       >
         {successStory?.map((story) => (
           <SwiperSlide key={story?._id}>
-            <div className="flex flex-col md:flex-row items-center gap-6 p-4">
+            <div className="flex flex-col md:flex-row items-center gap-6 p-4 mb-4 ">
               
               {/* Left: Image */}
               <div className="w-full md:w-1/2">

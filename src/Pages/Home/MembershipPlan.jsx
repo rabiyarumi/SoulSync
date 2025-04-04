@@ -43,7 +43,7 @@ const MembershipPlan = () => {
     <Container>
         <SectionHeaders title={"Choose Our"} coloredTitle={"Plan"}/>
      
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6  w-full mx-auto">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6  w-full mx-auto mb-20">
           {plans.map((plan, index) => (
             <motion.div
               key={index}
